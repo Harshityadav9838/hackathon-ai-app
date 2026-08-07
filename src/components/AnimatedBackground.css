@@ -16,187 +16,48 @@
    DARK THEME - NEON RINGS
 ================================= */
 
+/* ===== RING VISIBILITY TEST ===== */
+
 [data-theme="dark"] .ring {
-    position: absolute;
+    position: fixed !important;
 
-    border-radius: 50%;
+    width: 80px !important;
+    height: 80px !important;
 
-    background: transparent;
+    border-radius: 50% !important;
 
-    border: 4px solid #a855f7;
+    background: transparent !important;
 
-    box-shadow:
-        0 0 10px rgba(168, 85, 247, 0.7),
-        0 0 25px rgba(56, 189, 248, 0.35);
+    border: 8px solid red !important;
 
-    pointer-events: none;
+    box-shadow: none !important;
 
-    z-index: 5;
+    opacity: 1 !important;
 
-    animation: ringFloat 8s ease-in-out infinite;
+    z-index: 9999 !important;
+
+    animation: none !important;
 }
 
-
-/* Ring 1 */
 [data-theme="dark"] .r1 {
-    width: 100px;
-    height: 100px;
-
-    top: 10%;
-    left: 10%;
-
-    animation: moveRing1 18s linear infinite;
+    top: 100px !important;
+    left: 100px !important;
 }
 
-
-/* Ring 2 */
 [data-theme="dark"] .r2 {
-    width: 75px;
-    height: 75px;
-
-    top: 20%;
-    left: 70%;
-
-    animation: moveRing2 22s linear infinite;
+    top: 100px !important;
+    left: 300px !important;
 }
 
-
-/* Ring 3 */
 [data-theme="dark"] .r3 {
-    width: 65px;
-    height: 65px;
-
-    top: 65%;
-    left: 75%;
-
-    animation: moveRing3 20s linear infinite;
+    top: 300px !important;
+    left: 100px !important;
 }
 
-
-/* Ring 4 */
 [data-theme="dark"] .r4 {
-    width: 55px;
-    height: 55px;
-
-    top: 70%;
-    left: 15%;
-
-    opacity: 0.65;
-
-    animation: moveRing4 24s linear infinite;
+    top: 300px !important;
+    left: 300px !important;
 }
-
-/* =================================
-   RANDOM FLOATING RING MOVEMENT
-================================= */
-
-@keyframes moveRing1 {
-
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    20% {
-        transform: translate(35vw, 10vh) rotate(90deg);
-    }
-
-    40% {
-        transform: translate(65vw, 35vh) rotate(180deg);
-    }
-
-    60% {
-        transform: translate(45vw, 65vh) rotate(260deg);
-    }
-
-    80% {
-        transform: translate(15vw, 45vh) rotate(320deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(360deg);
-    }
-}
-
-
-@keyframes moveRing2 {
-
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    20% {
-        transform: translate(-35vw, 20vh) rotate(-80deg);
-    }
-
-    40% {
-        transform: translate(-50vw, 50vh) rotate(-170deg);
-    }
-
-    60% {
-        transform: translate(-20vw, 65vh) rotate(-250deg);
-    }
-
-    80% {
-        transform: translate(15vw, 35vh) rotate(-320deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(-360deg);
-    }
-}
-
-
-@keyframes moveRing3 {
-
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    25% {
-        transform: translate(-40vw, -15vh) rotate(90deg);
-    }
-
-    50% {
-        transform: translate(-55vw, -45vh) rotate(180deg);
-    }
-
-    75% {
-        transform: translate(-15vw, -55vh) rotate(270deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(360deg);
-    }
-}
-
-
-@keyframes moveRing4 {
-
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    20% {
-        transform: translate(25vw, -25vh) rotate(70deg);
-    }
-
-    40% {
-        transform: translate(60vw, -10vh) rotate(150deg);
-    }
-
-    60% {
-        transform: translate(55vw, -55vh) rotate(230deg);
-    }
-
-    80% {
-        transform: translate(20vw, -40vh) rotate(300deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(360deg);
-    }
-}
-
 
 /* =================================
    DARK THEME - GLOWING PARTICLES
