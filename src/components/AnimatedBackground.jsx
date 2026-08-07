@@ -2,20 +2,29 @@ import "./AnimatedBackground.css";
 
 export default function AnimatedBackground() {
   return (
-    <div className="bg-container">
+    <div className="bg">
 
       {/* Aurora */}
-      <div className="aurora aurora1"></div>
-      <div className="aurora aurora2"></div>
-      <div className="aurora aurora3"></div>
-      <div className="aurora aurora4"></div>
+      <div className="aurora a1"></div>
+      <div className="aurora a2"></div>
+      <div className="aurora a3"></div>
+      <div className="aurora a4"></div>
 
       {/* Neon Rings */}
-      <div className="ring ring1"></div>
-      <div className="ring ring2"></div>
-      <div className="ring ring3"></div>
+      <div className="ring r1"></div>
+      <div className="ring r2"></div>
+      <div className="ring r3"></div>
+      <div className="ring r4"></div>
 
-      {/* Glow */}
+      {/* Floating Lights */}
+      <div className="light l1"></div>
+      <div className="light l2"></div>
+      <div className="light l3"></div>
+
+      {/* Fog */}
+      <div className="fog"></div>
+
+      {/* Vignette */}
       <div className="vignette"></div>
 
     </div>
