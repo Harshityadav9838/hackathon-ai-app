@@ -25,7 +25,14 @@ export default function App() {
   return (
     <BrowserRouter>
       <AnimatedBackground />
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <div style={{
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            position: "relative",
+            zIndex: 1,
+        }}>
         
         {/* Sticky Mobile Header */}
         <Header theme={theme} toggleTheme={toggleTheme} />
