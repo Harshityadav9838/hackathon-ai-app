@@ -116,43 +116,44 @@
 [data-theme="dark"] .ring {
     position: absolute;
 
-    width: 90px;
-    height: 90px;
-
     border-radius: 50%;
 
     pointer-events: none;
 
-    /* Gradient ring */
-    background: linear-gradient(
-        135deg,
-        rgba(180, 90, 255, 0.95),
-        rgba(50, 200, 255, 0.85)
-    );
+    /* Hollow ring */
+    background:
+        linear-gradient(
+            135deg,
+            #a855f7 0%,
+            #38bdf8 100%
+        );
 
-    /* Cut out the middle */
+    /* Cut the center out */
     -webkit-mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite: xor;
+        radial-gradient(
+            circle,
+            transparent 0,
+            transparent calc(100% - 9px),
+            #000 calc(100% - 8px),
+            #000 100%
+        );
 
     mask:
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-
-    mask-composite: exclude;
-
-    padding: 8px;
+        radial-gradient(
+            circle,
+            transparent 0,
+            transparent calc(100% - 9px),
+            #000 calc(100% - 8px),
+            #000 100%
+        );
 
     filter:
-        drop-shadow(0 0 8px rgba(168, 85, 247, 0.55))
+        drop-shadow(0 0 8px rgba(168, 85, 247, 0.65))
         drop-shadow(0 0 18px rgba(56, 189, 248, 0.35));
 
     opacity: 0.85;
 
     animation: ringFloat 8s ease-in-out infinite;
-}
 }
 
 
@@ -165,7 +166,7 @@
     top: 100px;
     right: 12%;
 
-    transform: rotate(25deg);
+    animation-delay: 0s;
 }
 
 
@@ -177,8 +178,6 @@
 
     top: 32%;
     left: 8%;
-
-    border-width: 7px;
 
     animation-delay: 1.5s;
 }
@@ -193,8 +192,6 @@
     bottom: 18%;
     right: 7%;
 
-    border-width: 6px;
-
     animation-delay: 3s;
 }
 
@@ -207,8 +204,6 @@
 
     top: 15%;
     left: 25%;
-
-    border-width: 5px;
 
     opacity: 0.55;
 
@@ -238,6 +233,8 @@
             rotate(0deg);
     }
 }
+
+
 /* =================================
    DARK THEME - FLOATING FOG
 ================================= */
@@ -454,25 +451,4 @@
         transform: translate3d(0, 0, 0);
         opacity: 0.35;
     }
-}
-[data-theme="dark"] .ring {
-    background: linear-gradient(
-        135deg,
-        #a855f7 0%,
-        #38bdf8 100%
-    ) !important;
-
-    -webkit-mask:
-        radial-gradient(
-            farthest-side,
-            transparent calc(100% - 8px),
-            #000 calc(100% - 8px)
-        );
-
-    mask:
-        radial-gradient(
-            farthest-side,
-            transparent calc(100% - 8px),
-            #000 calc(100% - 8px)
-        );
 }
