@@ -99,10 +99,16 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-color);
+
+  background:
+    var(--bg-color);
+
   color: var(--text-primary);
+
   min-height: 100vh;
+
   overflow-x: hidden;
+
   position: relative;
 }
 
