@@ -1,8 +1,21 @@
-import React from 'react';
-import { Zap, Sun, Moon, Trophy, Calendar, Layers } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Zap, Sun, Moon, Calendar, Layers, UserCheck } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 export default function Header({ theme, toggleTheme }) {
+  // Dynamic User Profile State (Persisted in localStorage)
+  const [userName, setUserName] = useState(() => {
+    return localStorage.getItem('abtalks_user_name') || 'Student Builder';
+  });
+
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleNameChange = (e) => {
+    const val = e.target.value;
+    setUserName(val);
+    localStorage.setItem('abtalks_user_name', val);
+  };
+
   return (
     <header style={{
       position: 'sticky',
@@ -45,7 +58,7 @@ export default function Header({ theme, toggleTheme }) {
           </div>
         </NavLink>
 
-        {/* Desktop Top Links Navigation */}
+        {/* Desktop Top Navigation */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }} className="desktop-nav">
           <NavLink to="/" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600 }}>
             Home
@@ -62,7 +75,7 @@ export default function Header({ theme, toggleTheme }) {
           </NavLink>
         </div>
 
-        {/* Right Header Actions */}
+        {/* Right Actions: Theme Toggle + Dynamic Logged-in User Profile */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           
           {/* Dual Theme Switcher */}
@@ -84,7 +97,7 @@ export default function Header({ theme, toggleTheme }) {
             </span>
           </button>
 
-          {/* User Profile Avatar: Harshit Yadav */}
+          {/* Dynamic Logged-In User Profile Component */}
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -98,19 +111,47 @@ export default function Header({ theme, toggleTheme }) {
               width: '28px',
               height: '28px',
               borderRadius: '50%',
-              background: 'var(--gradient-primary)',
+              background: 'var(--gradient-neon)',
               color: '#fff',
               fontWeight: 800,
               fontSize: '0.85rem',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              textTransform: 'uppercase'
             }}>
-              H
+              {userName ? userName.charAt(0) : 'U'}
             </div>
+            
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontSize: '0.78rem', fontWeight: 700, lineHeight: 1 }}>Harshit Yadav</span>
-              <span style={{ fontSize: '0.62rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>● Active</span>
+              {isEditing ? (
+                <input 
+                  type="text" 
+                  value={userName} 
+                  onChange={handleNameChange}
+                  onBlur={() => setIsEditing(false)}
+                  autoFocus
+                  style={{
+                    fontSize: '0.78rem',
+                    fontWeight: 700,
+                    background: 'transparent',
+                    border: 'none',
+                    color: 'var(--text-primary)',
+                    outline: 'none',
+                    width: '90px'
+                  }}
+                />
+              ) : (
+                <span 
+                  onClick={() => setIsEditing(true)}
+                  title="Click to edit logged in user name"
+                  style={{ fontSize: '0.78rem', fontWeight: 700, lineHeight: 1, cursor: 'pointer' }}>
+                  {userName}
+                </span>
+              )}
+              <span style={{ fontSize: '0.62rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>
+                ● Logged In
+              </span>
             </div>
           </div>
 
