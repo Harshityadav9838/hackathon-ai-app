@@ -22,35 +22,44 @@ export default function App() {
     setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
-  return (
-    <BrowserRouter>
-      <AnimatedBackground />
-      <div style={{
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            position: "relative",
-            zIndex: 1,
-        }}>
-        
-        {/* Sticky Mobile Header */}
-        <Header theme={theme} toggleTheme={toggleTheme} />
+return (
+  <BrowserRouter>
 
-        {/* Route Container (390px Mobile Optimized) */}
-        <main style={{ flex: 1, padding: '1rem', width: '100%', maxWidth: '600px', margin: '0 auto' }}>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/dashboard" element={<DashboardPage />} />
-            <Route path="/day/12" element={<ChallengeDay />} />
-            {/* Catch-all fallback route redirects to Landing Page */}
-            <Route path="*" element={<LandingPage />} />
-          </Routes>
-        </main>
+    <AnimatedBackground />
 
-        {/* Mobile-First Bottom Navigation Bar */}
-        <BottomNav />
-      </div>
-    </BrowserRouter>
-  );
-}
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        position: "relative",
+        zIndex: 1,
+      }}
+    >
+
+      <Header theme={theme} toggleTheme={toggleTheme} />
+
+      <main
+        style={{
+          flex: 1,
+          padding: "1rem",
+          width: "100%",
+          maxWidth: "600px",
+          margin: "0 auto"
+        }}
+      >
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/day/12" element={<ChallengeDay />} />
+          <Route path="*" element={<LandingPage />} />
+        </Routes>
+      </main>
+
+      <BottomNav />
+
+    </div>
+
+  </BrowserRouter>
+);
