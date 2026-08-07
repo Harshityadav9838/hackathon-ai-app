@@ -2,28 +2,113 @@
    BACKGROUND ENGINE
 =========================== */
 
-.bg{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:0;
-    background:#050816;
+.bg {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    background: #050816;
 }
 
 
 /* =================================
-   DARK THEME - FLOATING NEON RINGS
-   ================================= */
+   DARK THEME - NEON RINGS
+================================= */
 
 [data-theme="dark"] .ring {
-    background: transparent !important;
-    border: 5px solid red !important;
-    -webkit-mask: none !important;
-    mask: none !important;
-    box-shadow: none !important;
-    filter: none !important;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    border: 4px solid #a855f7;
+
+    box-shadow:
+        0 0 10px rgba(168, 85, 247, 0.7),
+        0 0 25px rgba(56, 189, 248, 0.35);
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    animation: ringFloat 8s ease-in-out infinite;
 }
+
+
+[data-theme="dark"] .r1 {
+    width: 105px;
+    height: 105px;
+
+    top: 100px;
+    right: 12%;
+
+    border-color: #a855f7;
+
+    animation-delay: 0s;
+}
+
+
+[data-theme="dark"] .r2 {
+    width: 75px;
+    height: 75px;
+
+    top: 32%;
+    left: 8%;
+
+    border-color: #38bdf8;
+
+    animation-delay: 1.5s;
+}
+
+
+[data-theme="dark"] .r3 {
+    width: 65px;
+    height: 65px;
+
+    bottom: 18%;
+    right: 7%;
+
+    border-color: #a855f7;
+
+    animation-delay: 3s;
+}
+
+
+[data-theme="dark"] .r4 {
+    width: 45px;
+    height: 45px;
+
+    top: 15%;
+    left: 25%;
+
+    border-color: #38bdf8;
+
+    opacity: 0.55;
+
+    animation-delay: 4.5s;
+}
+
+
+@keyframes ringFloat {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(15deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+
 /* =================================
    DARK THEME - GLOWING PARTICLES
 ================================= */
@@ -44,16 +129,15 @@
 
     opacity: 0.7;
 
+    z-index: 4;
+
     animation: particleFloat 7s ease-in-out infinite;
 }
 
 
-/* Particle positions */
-
 [data-theme="dark"] .l1 {
     top: 18%;
     left: 15%;
-    animation-delay: 0s;
 }
 
 [data-theme="dark"] .l2 {
@@ -113,22 +197,20 @@
 }
 
 
-/* Particle animation */
-
 @keyframes particleFloat {
 
     0% {
-        transform: translate3d(0, 0, 0);
+        transform: translateY(0);
         opacity: 0.35;
     }
 
     50% {
-        transform: translate3d(0, -18px, 0);
+        transform: translateY(-18px);
         opacity: 0.9;
     }
 
     100% {
-        transform: translate3d(0, 0, 0);
+        transform: translateY(0);
         opacity: 0.35;
     }
 }
