@@ -220,16 +220,84 @@ body::before {
   gap: 8px;
 }
 
-/* Glassmorphism Card */
+/* =========================================
+   PREMIUM GLASS PANEL
+========================================= */
+
 .glass-panel {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-color);
+  background: rgba(13, 17, 28, 0.52);
+
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
   border-radius: 22px;
-  box-shadow: var(--shadow-card);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 0 35px rgba(139, 92, 246, 0.08);
+
   position: relative;
+
   overflow: hidden;
+
+  isolation: isolate;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+/* Subtle glass highlight */
+
+.glass-panel::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.055),
+      transparent 35%,
+      transparent 70%,
+      rgba(168, 85, 247, 0.035)
+    );
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* Subtle top edge */
+
+.glass-panel::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 8%;
+  right: 8%;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.18),
+      transparent
+    );
+
+  pointer-events: none;
 }
 
 /* Button Component */
