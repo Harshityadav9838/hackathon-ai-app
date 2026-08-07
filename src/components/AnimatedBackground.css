@@ -4,21 +4,16 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: black;
-  z-index: 9999;
-}
-
-.test {
-  color: white;
-  font-size: 50px;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .ring {
   position: absolute;
   width: 150px;
   height: 150px;
-  border-radius: 50%;
   border: 5px solid red;
+  border-radius: 50%;
 }
 
 .r1 {
@@ -27,13 +22,13 @@
 }
 
 .r2 {
-  top: 250px;
-  left: 250px;
+  top: 200px;
+  left: 300px;
 }
 
 .r3 {
-  top: 450px;
-  left: 450px;
+  top: 400px;
+  left: 500px;
 }
 
 .r4 {
