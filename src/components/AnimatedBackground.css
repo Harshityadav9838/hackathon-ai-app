@@ -120,13 +120,13 @@
 
     border: 8px solid transparent;
 
-    background:
-        linear-gradient(#050816, #050816) padding-box,
-        linear-gradient(
-            135deg,
-            rgba(180, 90, 255, 0.9),
-            rgba(50, 200, 255, 0.75)
-        ) border-box;
+   background:
+    linear-gradient(transparent, transparent) padding-box,
+    linear-gradient(
+        135deg,
+        rgba(180, 90, 255, 0.9),
+        rgba(50, 200, 255, 0.75)
+    ) border-box;
 
     filter:
         drop-shadow(0 0 8px rgba(168, 85, 247, 0.45))
