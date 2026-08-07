@@ -4,17 +4,14 @@ export default function AnimatedBackground() {
   return (
     <div className="bg-container">
 
-      <div className="blob blob1"></div>
-      <div className="blob blob2"></div>
-      <div className="blob blob3"></div>
-      <div className="blob blob4"></div>
+      {/* Aurora Lights */}
+      <div className="aurora aurora1"></div>
+      <div className="aurora aurora2"></div>
+      <div className="aurora aurora3"></div>
+      <div className="aurora aurora4"></div>
 
-      <div className="ring ring1"></div>
-      <div className="ring ring2"></div>
-      <div className="ring ring3"></div>
-      <div className="ring ring4"></div>
-
-      <div className="noise"></div>
+      {/* Vignette */}
+      <div className="vignette"></div>
 
     </div>
   );
