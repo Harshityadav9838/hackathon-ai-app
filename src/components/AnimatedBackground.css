@@ -14,41 +14,37 @@
 
 /* =================================
    DARK THEME - FLOATING NEON RINGS
-================================= */
+   ================================= */
 
 [data-theme="dark"] .ring {
     position: absolute;
-
     border-radius: 50%;
-
     pointer-events: none;
+   z-index: 2;
 
     /* Hollow ring */
-    background:
-        linear-gradient(
-            135deg,
-            #a855f7 0%,
-            #38bdf8 100%
-        );
+    background: linear-gradient(
+        135deg,
+        #a855f7 0%,
+        #38bdf8 100%
+    );
 
     /* Cut the center out */
-    -webkit-mask:
-        radial-gradient(
-            circle,
-            transparent 0,
-            transparent calc(100% - 9px),
-            #000 calc(100% - 8px),
-            #000 100%
-        );
+    -webkit-mask: radial-gradient(
+        circle,
+        transparent 0,
+        transparent calc(100% - 9px),
+        #000 calc(100% - 8px),
+        #000 100%
+    );
 
-    mask:
-        radial-gradient(
-            circle,
-            transparent 0,
-            transparent calc(100% - 9px),
-            #000 calc(100% - 8px),
-            #000 100%
-        );
+    mask: radial-gradient(
+        circle,
+        transparent 0,
+        transparent calc(100% - 9px),
+        #000 calc(100% - 8px),
+        #000 100%
+    );
 
     filter:
         drop-shadow(0 0 8px rgba(168, 85, 247, 0.65))
@@ -58,89 +54,45 @@
 
     animation: ringFloat 8s ease-in-out infinite;
 }
-
-
-/* Ring 1 - Top Right */
-
 [data-theme="dark"] .r1 {
     width: 105px;
     height: 105px;
-
     top: 100px;
     right: 12%;
-
     animation-delay: 0s;
 }
-
-
-/* Ring 2 - Left */
 
 [data-theme="dark"] .r2 {
     width: 75px;
     height: 75px;
-
     top: 32%;
     left: 8%;
-
     animation-delay: 1.5s;
 }
-
-
-/* Ring 3 - Bottom Right */
 
 [data-theme="dark"] .r3 {
     width: 65px;
     height: 65px;
-
     bottom: 18%;
     right: 7%;
-
     animation-delay: 3s;
 }
-
-
-/* Ring 4 - Top Left */
 
 [data-theme="dark"] .r4 {
     width: 45px;
     height: 45px;
-
     top: 15%;
     left: 25%;
-
     opacity: 0.55;
-
     animation-delay: 4.5s;
 }
 
 
-/* Ring movement */
-
-@keyframes ringFloat {
-
-    0% {
-        transform:
-            translate3d(0, 0, 0)
-            rotate(0deg);
-    }
-
-    50% {
-        transform:
-            translate3d(0, -22px, 0)
-            rotate(18deg);
-    }
-
-    100% {
-        transform:
-            translate3d(0, 0, 0)
-            rotate(0deg);
-    }
-}
 
 
 /* =================================
    DARK THEME - FLOATING FOG
-================================= */
+   ================================= */
 
 [data-theme="dark"] .fog {
     position: absolute;
@@ -152,24 +104,29 @@
 
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(168, 85, 247, 0.22) 0%,
-            rgba(124, 58, 237, 0.14) 30%,
-            rgba(56, 189, 248, 0.08) 50%,
-            transparent 72%
-        );
+    background: radial-gradient(
+        circle,
+        rgba(168, 85, 247, 0.22) 0%,
+        rgba(124, 58, 237, 0.14) 30%,
+        rgba(56, 189, 248, 0.08) 50%,
+        transparent 72%
+    );
 
     filter: blur(90px);
-
     opacity: 0.75;
 
     animation: fogMove 14s ease-in-out infinite alternate;
+
+    pointer-events: none;
+
+    /* Keep fog behind rings */
+    z-index: 0;
 }
 
 
-/* Second fog layer using the same element */
+/* =================================
+   DARK THEME - SECOND FOG
+   ================================= */
 
 [data-theme="dark"] .bg::after {
     content: "";
@@ -184,23 +141,23 @@
 
     border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(56, 189, 248, 0.18),
-            rgba(168, 85, 247, 0.12) 40%,
-            transparent 72%
-        );
+    background: radial-gradient(
+        circle,
+        rgba(56, 189, 248, 0.18),
+        rgba(168, 85, 247, 0.12) 40%,
+        transparent 72%
+    );
 
     filter: blur(110px);
-
     opacity: 0.7;
 
     animation: fogMove2 18s ease-in-out infinite alternate;
 
     pointer-events: none;
-}
 
+    /* Keep second fog behind rings */
+    z-index: 0;
+}
 
 /* Fog movement */
 
