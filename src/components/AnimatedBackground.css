@@ -329,3 +329,111 @@
     }
 }
 
+/* =================================
+   DARK THEME - GLOWING PARTICLES
+================================= */
+
+[data-theme="dark"] .light {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(180, 150, 255, 0.9);
+
+    box-shadow:
+        0 0 8px rgba(168, 85, 247, 0.9),
+        0 0 20px rgba(168, 85, 247, 0.45);
+
+    opacity: 0.7;
+
+    animation: particleFloat 7s ease-in-out infinite;
+}
+
+
+/* Particle positions */
+
+[data-theme="dark"] .l1 {
+    top: 18%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+[data-theme="dark"] .l2 {
+    top: 30%;
+    left: 35%;
+    width: 3px;
+    height: 3px;
+    animation-delay: 1s;
+}
+
+[data-theme="dark"] .l3 {
+    top: 20%;
+    right: 22%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 2s;
+}
+
+[data-theme="dark"] .l4 {
+    top: 48%;
+    left: 6%;
+    width: 3px;
+    height: 3px;
+    animation-delay: 3s;
+}
+
+[data-theme="dark"] .l5 {
+    top: 62%;
+    right: 14%;
+    width: 5px;
+    height: 5px;
+    animation-delay: 1.5s;
+}
+
+[data-theme="dark"] .l6 {
+    bottom: 20%;
+    left: 25%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 4s;
+}
+
+[data-theme="dark"] .l7 {
+    bottom: 12%;
+    right: 32%;
+    width: 3px;
+    height: 3px;
+    animation-delay: 2.5s;
+}
+
+[data-theme="dark"] .l8 {
+    top: 38%;
+    right: 5%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 5s;
+}
+
+
+/* Particle animation */
+
+@keyframes particleFloat {
+
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translate3d(0, -18px, 0);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0.35;
+    }
+}
