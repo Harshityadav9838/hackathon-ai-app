@@ -220,3 +220,112 @@
             rotate(0deg);
     }
 }
+/* =================================
+   DARK THEME - FLOATING FOG
+================================= */
+
+[data-theme="dark"] .fog {
+    position: absolute;
+    width: 650px;
+    height: 650px;
+
+    left: -180px;
+    bottom: -220px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 85, 247, 0.22) 0%,
+            rgba(124, 58, 237, 0.14) 30%,
+            rgba(56, 189, 248, 0.08) 50%,
+            transparent 72%
+        );
+
+    filter: blur(90px);
+
+    opacity: 0.75;
+
+    animation: fogMove 14s ease-in-out infinite alternate;
+}
+
+
+/* Second fog layer using the same element */
+
+[data-theme="dark"] .bg::after {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    right: -200px;
+    top: 20%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(56, 189, 248, 0.18),
+            rgba(168, 85, 247, 0.12) 40%,
+            transparent 72%
+        );
+
+    filter: blur(110px);
+
+    opacity: 0.7;
+
+    animation: fogMove2 18s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+/* Fog movement */
+
+@keyframes fogMove {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(80px, -35px, 0)
+            scale(1.12);
+    }
+
+    100% {
+        transform:
+            translate3d(30px, 40px, 0)
+            scale(1.05);
+    }
+}
+
+
+@keyframes fogMove2 {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(-70px, 30px, 0)
+            scale(1.15);
+    }
+
+    100% {
+        transform:
+            translate3d(-20px, -40px, 0)
+            scale(1.05);
+    }
+}
+
