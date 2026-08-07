@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Rocket, 
@@ -14,17 +14,63 @@ import {
 } from 'lucide-react';
 
 export default function LandingPage() {
+  const [currentTheme, setCurrentTheme] = useState(() => {
+    return document.documentElement.getAttribute('data-theme') || 'dark';
+  });
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      setCurrentTheme(activeTheme);
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div style={{ paddingBottom: '90px' }}>
+    <div style={{ paddingBottom: '90px', position: 'relative' }}>
       
+      {/* 🌌 Theme-Specific 3D Background Artifacts */}
+      {currentTheme === 'dark' ? (
+        <>
+          <div className="animate-fog" style={{
+            position: 'absolute',
+            top: '-50px',
+            right: '-10%',
+            width: '500px',
+            height: '500px',
+            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(56, 189, 248, 0.15) 50%, transparent 70%)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }} />
+          <div className="spatial-ring animate-ring-1" style={{ width: '90px', height: '90px', top: '15px', right: '-15px', zIndex: 1 }} />
+          <div className="spatial-ring animate-ring-2" style={{ width: '70px', height: '70px', bottom: '200px', left: '-20px', zIndex: 1 }} />
+        </>
+      ) : (
+        <>
+          <div className="animate-fog" style={{
+            position: 'absolute',
+            top: '-40px',
+            left: '-8%',
+            width: '520px',
+            height: '520px',
+            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(6, 182, 212, 0.12) 50%, transparent 70%)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }} />
+          <div className="spatial-cube animate-cube-1" style={{ top: '15px', right: '-15px' }} />
+          <div className="spatial-cube animate-cube-2" style={{ bottom: '200px', left: '-20px' }} />
+        </>
+      )}
+
       {/* 🚀 Mobile Hero Section */}
-      <section className="glass-panel" style={{ padding: '2rem 1.25rem', textAlign: 'center', marginBottom: '1.5rem', position: 'relative' }}>
+      <section className="glass-panel" style={{ padding: '2rem 1.25rem', textAlign: 'center', marginBottom: '1.5rem', position: 'relative', zIndex: 2 }}>
         <div className="badge badge-purple" style={{ marginBottom: '1rem' }}>
           <Moon size={12} /> Designed for Late-Night Mobile Builders
         </div>
 
-        <h1 style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1.25, marginBottom: '1rem', letterSpacing: '-0.5px' }}>
-          Build Daily. Get Noticed. <span style={{ color: 'var(--accent-purple)' }}>Land Your Dream Job.</span>
+        <h1 style={{ fontSize: '2.1rem', fontWeight: 800, lineHeight: 1.25, marginBottom: '1rem', letterSpacing: '-0.5px' }}>
+          Build Daily. Get Noticed. <span className="text-gradient">Land Your Dream Job.</span>
         </h1>
 
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
@@ -49,7 +95,7 @@ export default function LandingPage() {
       </section>
 
       {/* ⚡ How It Works (Proof of Work System) */}
-      <section style={{ marginBottom: '1.75rem' }}>
+      <section style={{ marginBottom: '1.75rem', position: 'relative', zIndex: 2 }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Flame color="var(--accent-amber)" size={20} />
           <span>How Your Daily Streak Works</span>
@@ -104,7 +150,7 @@ export default function LandingPage() {
       </section>
 
       {/* 🎯 Tracks Selection */}
-      <section style={{ marginBottom: '1.75rem' }}>
+      <section style={{ marginBottom: '1.75rem', position: 'relative', zIndex: 2 }}>
         <h2 style={{ fontSize: '1.25rem', fontWeight: 800, marginBottom: '1rem' }}>
           Choose Your 60-Day Track
         </h2>
@@ -131,7 +177,7 @@ export default function LandingPage() {
       </section>
 
       {/* Final Action Bar */}
-      <section className="glass-panel" style={{ padding: '1.5rem', textAlign: 'center', borderColor: 'var(--accent-purple)' }}>
+      <section className="glass-panel" style={{ padding: '1.5rem', textAlign: 'center', borderColor: 'var(--accent-purple)', position: 'relative', zIndex: 2 }}>
         <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '0.5rem' }}>Ready to build your streak?</h3>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' }}>
           Setup takes less than 2 minutes. Start Day 1 tonight!

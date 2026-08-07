@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   CheckCircle2, 
   Send, 
@@ -15,6 +15,19 @@ import {
 import { Link } from 'react-router-dom';
 
 export default function ChallengeDay() {
+  const [currentTheme, setCurrentTheme] = useState(() => {
+    return document.documentElement.getAttribute('data-theme') || 'dark';
+  });
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      setCurrentTheme(activeTheme);
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => observer.disconnect();
+  }, []);
+
   const [githubUrl, setGithubUrl] = useState('https://github.com/Harshityadav9838/hackathon-ai-app');
   const [linkedinUrl, setLinkedinUrl] = useState('https://linkedin.com/posts/harshit-day12-challenge');
   const [submitted, setSubmitted] = useState(false);
@@ -43,10 +56,43 @@ Today I built a Fullstack REST API with rate limiting and error handling for the
   };
 
   return (
-    <div style={{ paddingBottom: '90px' }}>
+    <div style={{ paddingBottom: '90px', position: 'relative' }}>
       
+      {/* 🌌 Theme-Specific 3D Background Artifacts */}
+      {currentTheme === 'dark' ? (
+        <>
+          <div className="animate-fog" style={{
+            position: 'absolute',
+            top: '-50px',
+            left: '-10%',
+            width: '500px',
+            height: '500px',
+            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(56, 189, 248, 0.15) 50%, transparent 70%)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }} />
+          <div className="spatial-ring animate-ring-1" style={{ width: '90px', height: '90px', top: '15px', right: '-15px', zIndex: 1 }} />
+          <div className="spatial-ring animate-ring-2" style={{ width: '70px', height: '70px', bottom: '150px', left: '-20px', zIndex: 1 }} />
+        </>
+      ) : (
+        <>
+          <div className="animate-fog" style={{
+            position: 'absolute',
+            top: '-40px',
+            right: '-8%',
+            width: '520px',
+            height: '520px',
+            background: 'radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(6, 182, 212, 0.12) 50%, transparent 70%)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }} />
+          <div className="spatial-cube animate-cube-1" style={{ top: '15px', right: '-15px' }} />
+          <div className="spatial-cube animate-cube-2" style={{ bottom: '150px', left: '-20px' }} />
+        </>
+      )}
+
       {/* Back Link */}
-      <div style={{ marginBottom: '1rem' }}>
+      <div style={{ marginBottom: '1rem', position: 'relative', zIndex: 2 }}>
         <Link to="/dashboard" style={{ color: 'var(--text-secondary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', fontWeight: 600 }}>
           <ArrowLeft size={16} />
           <span>Back to Dashboard (/dashboard)</span>
@@ -54,7 +100,7 @@ Today I built a Fullstack REST API with rate limiting and error handling for the
       </div>
 
       {/* 📅 Task Header */}
-      <div style={{ marginBottom: '1.25rem' }}>
+      <div style={{ marginBottom: '1.25rem', position: 'relative', zIndex: 2 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
           <span className="badge badge-amber">DAY 12 OF 60</span>
           <span className="badge badge-purple">AI Engineer Track</span>
@@ -65,7 +111,7 @@ Today I built a Fullstack REST API with rate limiting and error handling for the
       </div>
 
       {/* 📄 TASK DETAILS & INSTRUCTIONS */}
-      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem' }}>
+      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem', position: 'relative', zIndex: 2 }}>
         <h2 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.6rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <FileCode2 size={18} color="var(--accent-purple)" />
           <span>What Needs To Be Built</span>
@@ -88,7 +134,7 @@ Today I built a Fullstack REST API with rate limiting and error handling for the
       </div>
 
       {/* 📝 PROOF OF WORK SUBMISSION FORM */}
-      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem' }}>
+      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem', position: 'relative', zIndex: 2 }}>
         <h2 style={{ fontSize: '1.1rem', fontWeight: 800, marginBottom: '0.4rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <ShieldCheck size={18} color="var(--accent-emerald)" />
           <span>Submit Proof of Work</span>

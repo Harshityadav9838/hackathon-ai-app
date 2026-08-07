@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Sun, Moon, Trophy, Calendar, User, Layers } from 'lucide-react';
+import { Zap, Sun, Moon, Trophy, Calendar, Layers } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 export default function Header({ theme, toggleTheme }) {
@@ -22,7 +22,7 @@ export default function Header({ theme, toggleTheme }) {
       }}>
         
         {/* Brand Logo & Name */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <NavLink to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
             width: '38px',
             height: '38px',
@@ -36,37 +36,36 @@ export default function Header({ theme, toggleTheme }) {
             <Zap size={22} color="#ffffff" />
           </div>
           <div>
-            <div style={{ fontSize: '1.15rem', fontWeight: 800, letterSpacing: '-0.5px', lineHeight: 1 }}>
+            <div style={{ fontSize: '1.15rem', fontWeight: 800, letterSpacing: '-0.5px', lineHeight: 1, color: 'var(--text-primary)' }}>
               AB TALKS
             </div>
             <div style={{ fontSize: '0.65rem', color: 'var(--accent-purple)', fontWeight: 800, letterSpacing: '0.5px' }}>
-              VIBECODATHON
+              60-DAY CHALLENGE
             </div>
           </div>
-        </div>
+        </NavLink>
 
-        {/* Desktop Top Links Navigation (Mockup Match) */}
+        {/* Desktop Top Links Navigation */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }} className="desktop-nav">
-          <NavLink to="/dashboard" style={{ textDecoration: 'none', color: 'var(--text-primary)', fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <Layers size={15} color="var(--accent-purple)" />
-            <span>Challenge</span>
+          <NavLink to="/" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600 }}>
+            Home
           </NavLink>
 
-          <NavLink to="/dashboard" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <Trophy size={15} />
-            <span>Leaderboard</span>
+          <NavLink to="/dashboard" style={{ textDecoration: 'none', color: 'var(--text-primary)', fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <Layers size={15} color="var(--accent-purple)" />
+            <span>Dashboard</span>
           </NavLink>
 
           <NavLink to="/day/12" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '5px' }}>
             <Calendar size={15} />
-            <span>Submissions</span>
+            <span>Day 12</span>
           </NavLink>
         </div>
 
         {/* Right Header Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           
-          {/* Dual Theme Toggle Button */}
+          {/* Dual Theme Switcher */}
           <button 
             onClick={toggleTheme}
             aria-label="Toggle Theme"
@@ -85,7 +84,7 @@ export default function Header({ theme, toggleTheme }) {
             </span>
           </button>
 
-          {/* User Profile Avatar (Matching Sarah Chen / Harshit Yadav - Active) */}
+          {/* User Profile Avatar: Harshit Yadav */}
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -99,18 +98,18 @@ export default function Header({ theme, toggleTheme }) {
               width: '28px',
               height: '28px',
               borderRadius: '50%',
-              background: 'var(--gradient-neon)',
+              background: 'var(--gradient-primary)',
               color: '#fff',
               fontWeight: 800,
-              fontSize: '0.8rem',
+              fontSize: '0.85rem',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              S
+              H
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontSize: '0.78rem', fontWeight: 700, lineHeight: 1 }}>Sarah Chen</span>
+              <span style={{ fontSize: '0.78rem', fontWeight: 700, lineHeight: 1 }}>Harshit Yadav</span>
               <span style={{ fontSize: '0.62rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>● Active</span>
             </div>
           </div>
