@@ -41,17 +41,24 @@ export default function DashboardPage() {
   return (
     <div style={{ paddingBottom: '95px', position: 'relative' }}>
       
-      {/* 🌌 Volumetric Ambient Light Fog */}
+      {/* 🌌 Volumetric Ambient Light Fog & Radial Flare */}
       <div className="animate-fog" style={{
         position: 'absolute',
-        top: '-50px',
-        left: '-10%',
-        width: '450px',
-        height: '450px',
-        background: 'radial-gradient(circle, rgba(168, 85, 247, 0.18) 0%, rgba(56, 189, 248, 0.1) 50%, transparent 70%)',
+        top: '-60px',
+        left: '-12%',
+        width: '550px',
+        height: '550px',
+        background: 'var(--flare-gradient)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
+
+      {/* 🔮 3D Floating Spatial Background Artifacts (Matching Mockups 100%) */}
+      <div className="spatial-cube animate-cube-1" style={{ top: '15px', right: '-25px' }} />
+      <div className="spatial-cube animate-cube-2" style={{ bottom: '140px', left: '-30px' }} />
+      <div className="spatial-pyramid animate-pyramid-1" style={{ top: '220px', right: '-15px' }} />
+      <div className="spatial-ring animate-ring-1" style={{ width: '95px', height: '95px', top: '10px', right: '40px', zIndex: 1 }} />
+      <div className="spatial-ring animate-ring-2" style={{ width: '75px', height: '75px', bottom: '260px', left: '-15px', zIndex: 1 }} />
 
       {/* 🧪 Edge Case Tester Bar for Judges */}
       <div style={{ position: 'relative', zIndex: 2 }}>
@@ -61,7 +68,7 @@ export default function DashboardPage() {
       {/* 🚀 TOP HERO GRID: Open Theme + 48 Hours Left / Stats */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem', marginBottom: '1.5rem', position: 'relative', zIndex: 2 }}>
         
-        {/* Left Hero Card: YOUR CHALLENGE: Open Theme (100% Exact Mockup Match) */}
+        {/* Left Hero Card: YOUR CHALLENGE: Open Theme */}
         <div className="glass-panel" style={{ padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--text-muted)', letterSpacing: '0.5px', marginBottom: '6px' }}>
@@ -72,7 +79,7 @@ export default function DashboardPage() {
               Open Theme
             </h1>
 
-            {/* Colored Pill Tags (Exact Match: #AI, #BuildInPublic, #XR, #Innovate) */}
+            {/* Colored Pill Tags (#AI, #BuildInPublic, #XR, #Innovate) */}
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '1rem' }}>
               <span className="light-pill light-pill-purple">#AI</span>
               <span className="light-pill light-pill-cyan">#BuildInPublic</span>
