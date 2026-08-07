@@ -115,26 +115,44 @@
 
 [data-theme="dark"] .ring {
     position: absolute;
+
+    width: 90px;
+    height: 90px;
+
     border-radius: 50%;
+
     pointer-events: none;
 
-    border: 8px solid transparent;
-
-   background:
-    linear-gradient(transparent, transparent) padding-box,
-    linear-gradient(
+    /* Gradient ring */
+    background: linear-gradient(
         135deg,
-        rgba(180, 90, 255, 0.9),
-        rgba(50, 200, 255, 0.75)
-    ) border-box;
+        rgba(180, 90, 255, 0.95),
+        rgba(50, 200, 255, 0.85)
+    );
+
+    /* Cut out the middle */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+
+    mask-composite: exclude;
+
+    padding: 8px;
 
     filter:
-        drop-shadow(0 0 8px rgba(168, 85, 247, 0.45))
-        drop-shadow(0 0 20px rgba(56, 189, 248, 0.25));
+        drop-shadow(0 0 8px rgba(168, 85, 247, 0.55))
+        drop-shadow(0 0 18px rgba(56, 189, 248, 0.35));
 
-    opacity: 0.8;
+    opacity: 0.85;
 
     animation: ringFloat 8s ease-in-out infinite;
+}
 }
 
 
