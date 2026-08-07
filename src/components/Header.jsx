@@ -1,5 +1,6 @@
 import React from 'react';
-import { Zap, Sun, Moon, Smartphone } from 'lucide-react';
+import { Zap, Sun, Moon, Trophy, Calendar, User, Layers } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 export default function Header({ theme, toggleTheme }) {
   return (
@@ -8,9 +9,9 @@ export default function Header({ theme, toggleTheme }) {
       top: 0,
       zIndex: 100,
       background: 'var(--bg-header)',
-      backdropFilter: 'blur(16px)',
+      backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border-color)',
-      padding: '0.75rem 1.25rem'
+      padding: '0.85rem 1.25rem'
     }}>
       <div style={{
         display: 'flex',
@@ -23,43 +24,55 @@ export default function Header({ theme, toggleTheme }) {
         {/* Brand Logo & Name */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '10px',
+            width: '38px',
+            height: '38px',
+            borderRadius: '12px',
             background: 'var(--gradient-primary)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: 'var(--shadow-glow)'
+            boxShadow: 'var(--shadow-purple)'
           }}>
-            <Zap size={20} color="#ffffff" />
+            <Zap size={22} color="#ffffff" />
           </div>
           <div>
-            <div style={{ fontSize: '1.1rem', fontWeight: 800, letterSpacing: '-0.5px', lineHeight: 1 }}>
-              ABTalks
+            <div style={{ fontSize: '1.15rem', fontWeight: 800, letterSpacing: '-0.5px', lineHeight: 1 }}>
+              AB TALKS
             </div>
-            <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
-              60-Day Challenge
+            <div style={{ fontSize: '0.65rem', color: 'var(--accent-purple)', fontWeight: 800, letterSpacing: '0.5px' }}>
+              VIBECODATHON
             </div>
           </div>
         </div>
 
-        {/* Header Right Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          
-          {/* Mobile 390px Badge */}
-          <div className="badge badge-purple" style={{ display: 'none', minWidth: '90px' }}>
-            <Smartphone size={12} />
-            <span>390px Mobile</span>
-          </div>
+        {/* Desktop Top Links Navigation (Mockup Match) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }} className="desktop-nav">
+          <NavLink to="/dashboard" style={{ textDecoration: 'none', color: 'var(--text-primary)', fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <Layers size={15} color="var(--accent-purple)" />
+            <span>Challenge</span>
+          </NavLink>
 
-          {/* Theme Toggle Button */}
+          <NavLink to="/dashboard" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <Trophy size={15} />
+            <span>Leaderboard</span>
+          </NavLink>
+
+          <NavLink to="/day/12" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <Calendar size={15} />
+            <span>Submissions</span>
+          </NavLink>
+        </div>
+
+        {/* Right Header Actions */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          
+          {/* Dual Theme Toggle Button */}
           <button 
             onClick={toggleTheme}
             aria-label="Toggle Theme"
             className="btn btn-secondary"
             style={{
-              padding: '6px 12px',
+              padding: '6px 14px',
               borderRadius: '9999px',
               fontSize: '0.8rem',
               display: 'flex',
@@ -68,24 +81,38 @@ export default function Header({ theme, toggleTheme }) {
             }}>
             {theme === 'dark' ? <Sun size={16} color="#fbbf24" /> : <Moon size={16} color="#6366f1" />}
             <span style={{ fontWeight: 700, textTransform: 'capitalize' }}>
-              {theme === 'dark' ? 'Light' : 'Dark'}
+              {theme === 'dark' ? 'Light' : 'Dark'} Mode
             </span>
           </button>
 
-          {/* User Profile Avatar */}
+          {/* User Profile Avatar (Matching Sarah Chen / Harshit Yadav - Active) */}
           <div style={{
-            width: '32px',
-            height: '32px',
-            borderRadius: '50%',
-            background: 'var(--gradient-primary)',
-            color: '#fff',
-            fontWeight: 800,
-            fontSize: '0.85rem',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            gap: '8px',
+            padding: '4px 10px 4px 4px',
+            borderRadius: '9999px',
+            background: 'var(--bg-card)',
+            border: '1px solid var(--border-color)'
           }}>
-            H
+            <div style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '50%',
+              background: 'var(--gradient-neon)',
+              color: '#fff',
+              fontWeight: 800,
+              fontSize: '0.8rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              S
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <span style={{ fontSize: '0.78rem', fontWeight: 700, lineHeight: 1 }}>Sarah Chen</span>
+              <span style={{ fontSize: '0.62rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>● Active</span>
+            </div>
           </div>
 
         </div>

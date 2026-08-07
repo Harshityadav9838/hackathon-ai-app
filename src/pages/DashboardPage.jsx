@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Flame, 
@@ -6,182 +6,284 @@ import {
   Trophy, 
   Users, 
   Rocket, 
-  ArrowRight, 
   Sparkles, 
-  RotateCcw,
-  ShieldCheck,
-  Zap
+  ArrowRight, 
+  CheckCircle2, 
+  Calendar,
+  Layers,
+  ChevronRight,
+  TrendingUp,
+  UserCheck,
+  Video
 } from 'lucide-react';
 import EdgeCaseSwitcher from '../components/EdgeCaseSwitcher';
 
 export default function DashboardPage() {
   const [edgeCase, setEdgeCase] = useState('active');
 
-  return (
-    <div style={{ paddingBottom: '90px' }}>
-      
-      {/* 🧪 Edge Case Tester for Judges */}
-      <EdgeCaseSwitcher edgeCase={edgeCase} setEdgeCase={setEdgeCase} />
+  // Live countdown timer calculation for Circular Progress Widget (45:12:30)
+  const [timerSeconds, setTimerSeconds] = useState(45 * 3600 + 12 * 60 + 30);
 
-      {/* 🚀 HERO SPOTLIGHT CARD: Open Theme 🚀 (Matching Image 1 Design) */}
-      <div className="glass-panel glass-panel-cyan" style={{ padding: '1.8rem', marginBottom: '1.5rem', position: 'relative' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
-          
-          <div style={{ flex: 1, minWidth: '260px' }}>
-            <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-secondary)', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '6px' }}>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimerSeconds(prev => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTimer = (totalSec) => {
+    const h = Math.floor(totalSec / 3600);
+    const m = Math.floor((totalSec % 3600) / 60);
+    const s = totalSec % 60;
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+  };
+
+  return (
+    <div style={{ paddingBottom: '95px', position: 'relative' }}>
+      
+      {/* 🌌 Volumetric Ambient Neon Fog (Dark Mode) */}
+      <div className="animate-fog" style={{
+        position: 'absolute',
+        top: '-50px',
+        left: '-10%',
+        width: '450px',
+        height: '450px',
+        background: 'radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, rgba(56, 189, 248, 0.12) 50%, transparent 70%)',
+        pointerEvents: 'none',
+        zIndex: 0
+      }} />
+
+      {/* 🔮 3D Floating Spatial Rings (Matching Mockup Images 100%) */}
+      <div className="spatial-ring animate-ring-1" style={{ width: '90px', height: '90px', top: '20px', right: '-20px', zIndex: 1 }} />
+      <div className="spatial-ring animate-ring-2" style={{ width: '70px', height: '70px', bottom: '150px', left: '-25px', zIndex: 1 }} />
+
+      {/* 🧪 Edge Case Tester Bar for Judges */}
+      <div style={{ position: 'relative', zIndex: 2 }}>
+        <EdgeCaseSwitcher edgeCase={edgeCase} setEdgeCase={setEdgeCase} />
+      </div>
+
+      {/* 🚀 TOP HERO ROW: Open Theme Spotlight Card + Circular Neon Countdown Timer */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '1.25rem', marginBottom: '1.5rem', position: 'relative', zIndex: 2 }}>
+        
+        {/* Left Card: YOUR CHALLENGE: Open Theme */}
+        <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div>
+            <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.5px', marginBottom: '6px' }}>
               YOUR CHALLENGE:
             </div>
-
-            <h1 style={{ fontSize: '2rem', fontWeight: 800, marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            
+            <h1 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '0.8rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
               Open Theme <span className="animate-float" style={{ display: 'inline-block' }}>🚀</span>
             </h1>
 
-            {/* Glowing Neon Pill Tags (#AI, #BuildInPublic, #48Hours) */}
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '1.2rem' }}>
-              <span className="badge neon-tag-cyan">#AI</span>
-              <span className="badge neon-tag-magenta">#BuildInPublic</span>
-              <span className="badge neon-tag-cyan">#48Hours</span>
+            {/* Glowing Neon Tags */}
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '1rem' }}>
+              <span className="neon-tag neon-tag-purple">#AI</span>
+              <span className="neon-tag neon-tag-pink">#BuildInPublic</span>
+              <span className="neon-tag neon-tag-cyan">#48Hours</span>
+              <span className="neon-tag neon-tag-emerald">#Innovate</span>
             </div>
 
-            <Link to="/day/12" className="btn btn-primary" style={{ textDecoration: 'none' }}>
-              <span>VIEW FULL CHALLENGE DETAILS</span>
-              <ArrowRight size={16} />
-            </Link>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.5, marginBottom: '1.25rem' }}>
+              Build groundbreaking spatial & web experiences using AI in 48 hours.
+            </p>
           </div>
 
-          {/* ⏱️ CIRCULAR GLOWING PROGRESS TIMER WIDGET (Matching Image 1) */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'rgba(0,0,0,0.3)', padding: '1.2rem 1.5rem', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <div className="timer-circle-container">
-              <svg className="timer-circle-svg" viewBox="0 0 140 140">
-                <defs>
-                  <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#06b6d4" />
-                    <stop offset="50%" stopColor="#8b5cf6" />
-                    <stop offset="100%" stopColor="#d946ef" />
-                  </linearGradient>
-                </defs>
-                <circle className="timer-circle-bg" cx="70" cy="70" r="55" />
-                <circle className="timer-circle-progress" cx="70" cy="70" r="55" />
-              </svg>
-
-              <div style={{ position: 'absolute', textAlign: 'center' }}>
-                <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase' }}>Time Left</div>
-                <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-mono)' }}>45:12:30</div>
-              </div>
-            </div>
-          </div>
-
+          <Link to="/day/12" className="btn btn-primary" style={{ textDecoration: 'none', width: '100%' }}>
+            <span>START PROJECT</span>
+            <Sparkles size={16} />
+          </Link>
         </div>
+
+        {/* Right Card: Circular Neon Countdown Progress Timer Widget */}
+        <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+          <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '0.8rem' }}>
+            COUNTDOWN TIMER
+          </div>
+
+          {/* ⭕ Circular Neon Progress Ring */}
+          <div className="circular-timer-ring" style={{ marginBottom: '0.8rem' }}>
+            <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase' }}>
+              Time Left
+            </div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--text-primary)', marginTop: '2px' }}>
+              {formatTimer(timerSeconds)}
+            </div>
+          </div>
+
+          <div style={{ fontSize: '0.78rem', color: 'var(--accent-emerald)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <Clock size={12} /> Deadline: Sunday 8:00 PM IST
+          </div>
+        </div>
+
       </div>
 
-      {/* 📊 3 STATS CARDS ROW (Matching Image 1) */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '1.5rem' }}>
+      {/* 📊 MIDDLE ROW: 3 Cyber-Neon Metric Cards (Matching Mockup 100%) */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem', marginBottom: '1.5rem', position: 'relative', zIndex: 2 }}>
         
         {/* Card 1: 48 Hours */}
-        <div className="glass-panel glass-panel-cyan" style={{ padding: '1.5rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-            <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: 'rgba(6, 182, 212, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-cyan)' }}>
+        <div className="glass-panel card-neon-cyan" style={{ padding: '1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem' }}>
+            <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-cyan)' }}>
               <Clock size={20} />
             </div>
+            <span className="neon-tag neon-tag-cyan">Build Window</span>
           </div>
-          <div style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-mono)' }}>48</div>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: '2px' }}>Hours</p>
+
+          <div style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)', lineHeight: 1 }}>
+            48
+          </div>
+          <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
+            Hours Total
+          </div>
         </div>
 
         {/* Card 2: ₹20K Prize Pool */}
-        <div className="glass-panel glass-panel-magenta" style={{ padding: '1.5rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-            <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: 'rgba(217, 70, 239, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-pink)' }}>
+        <div className="glass-panel card-neon-purple" style={{ padding: '1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem' }}>
+            <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: 'rgba(168, 85, 247, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-purple)' }}>
               <Trophy size={20} />
             </div>
+            <span className="neon-tag neon-tag-purple">Grand Prize</span>
           </div>
-          <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--accent-pink)', fontFamily: 'var(--font-mono)' }}>₹20K</div>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: '2px' }}>Prize Pool</p>
+
+          <div style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--accent-purple)', lineHeight: 1 }}>
+            ₹20K
+          </div>
+          <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
+            Prize Pool
+          </div>
         </div>
 
         {/* Card 3: 500+ Participants */}
-        <div className="glass-panel glass-panel-cyan" style={{ padding: '1.5rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-            <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: 'rgba(139, 92, 246, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-purple)' }}>
+        <div className="glass-panel card-neon-pink" style={{ padding: '1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem' }}>
+            <div style={{ width: '38px', height: '38px', borderRadius: '12px', background: 'rgba(244, 114, 182, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-pink)' }}>
               <Users size={20} />
             </div>
+            <span className="neon-tag neon-tag-pink">Active Hackers</span>
           </div>
-          <div style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--accent-purple)', fontFamily: 'var(--font-mono)' }}>500+</div>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: '2px' }}>Participants</p>
+
+          <div style={{ fontSize: '2.2rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--accent-pink)', lineHeight: 1 }}>
+            500+
+          </div>
+          <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
+            Building Right Now
+          </div>
         </div>
 
       </div>
 
-      {/* 🔥 STREAK STATUS CARD (Handles Edge Cases) */}
-      {edgeCase === 'active' && (
-        <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1.25rem', borderColor: 'var(--accent-amber)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div className="animate-flame" style={{ fontSize: '2rem' }}>🔥</div>
-              <div>
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--accent-amber)', lineHeight: 1 }}>
-                  12 DAYS STREAK
-                </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
-                  CURRENT ACTIVE STREAK
+      {/* 🔥 STREAK CARD & EDGE CASES (Student Platform Section) */}
+      <div style={{ position: 'relative', zIndex: 2, marginBottom: '1.5rem' }}>
+        {edgeCase === 'active' && (
+          <div className="glass-panel" style={{ padding: '1.25rem', border: '1px solid var(--accent-amber)', background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(239, 68, 68, 0.08) 100%)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div className="animate-flame" style={{ fontSize: '1.8rem' }}>🔥</div>
+                <div>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--accent-amber)', lineHeight: 1 }}>
+                    12 DAYS STREAK
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Overall Progress: 12 / 60 Days (20%)</div>
                 </div>
               </div>
+              <span className="badge badge-amber">Consistent Builder</span>
             </div>
-            <span className="badge badge-amber">Consistent Builder</span>
           </div>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-            Complete Day 12's challenge on the Day 12 tab to reach Day 13!
-          </p>
-        </div>
-      )}
+        )}
 
-      {edgeCase === 'first_day' && (
-        <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1.25rem', borderColor: 'var(--accent-emerald)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ fontSize: '2rem' }}>🌟</div>
-              <div>
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', lineHeight: 1 }}>
-                  0 DAYS KICKOFF
-                </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
-                  FIRST DAY ONBOARDING
+        {edgeCase === 'first_day' && (
+          <div className="glass-panel" style={{ padding: '1.25rem', border: '1px solid var(--accent-emerald)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ fontSize: '1.8rem' }}>🌟</div>
+                <div>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--accent-emerald)', lineHeight: 1 }}>
+                    0 DAYS STREAK
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Day 1 Kickoff • Start your 60-day journey!</div>
                 </div>
               </div>
+              <span className="badge badge-emerald">New Builder</span>
             </div>
-            <span className="badge badge-emerald">New Builder</span>
           </div>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-            Welcome! Complete your Day 1 challenge tonight to start your streak.
-          </p>
-        </div>
-      )}
+        )}
 
-      {edgeCase === 'missed_day' && (
-        <div className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1.25rem', borderColor: 'var(--accent-red)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div style={{ fontSize: '2rem' }}>⚠️</div>
-              <div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--accent-red)', lineHeight: 1 }}>
-                  MISSED DAY 11
-                </div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
-                  GRACE PERIOD ACTIVE
+        {edgeCase === 'missed_day' && (
+          <div className="glass-panel" style={{ padding: '1.25rem', border: '1px solid var(--accent-pink)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ fontSize: '1.8rem' }}>⚠️</div>
+                <div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-pink)', lineHeight: 1 }}>
+                    MISSED DAY 11
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Complete Day 12 to activate Streak Shield!</div>
                 </div>
               </div>
+              <span className="badge badge-red">Grace Period</span>
             </div>
-            <span className="badge badge-red">Streak Risk</span>
           </div>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
-            Complete Day 12 before 11:59 PM to recover your streak!
-          </p>
-          <button className="btn btn-secondary" style={{ width: '100%', padding: '8px 14px' }}>
-            <RotateCcw size={14} />
-            <span>Use Streak Shield & Recover</span>
-          </button>
+        )}
+      </div>
+
+      {/* 📑 BOTTOM ACTIVITY & TEAM SECTION (Matching Mockup 100%) */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', position: 'relative', zIndex: 2 }}>
+        
+        {/* Hackathon Activity */}
+        <div className="glass-panel" style={{ padding: '1.25rem' }}>
+          <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.8rem', display: 'flex', alignItems: 'center', justify: 'space-between' }}>
+            <span>Hackathon Activity</span>
+            <span className="badge badge-purple">Live Feed</span>
+          </h3>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px', background: 'var(--bg-input)', borderRadius: '10px' }}>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--gradient-primary)', color: '#fff', fontSize: '0.75rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                N
+              </div>
+              <div>
+                <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>NeoVision Team</div>
+                <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Submitted spatial prototype</div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px', background: 'var(--bg-input)', borderRadius: '10px' }}>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--gradient-neon)', color: '#fff', fontSize: '0.75rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                H
+              </div>
+              <div>
+                <div style={{ fontSize: '0.82rem', fontWeight: 700 }}>Harshit Yadav</div>
+                <div style={{ fontSize: '0.72rem', color: 'var(--accent-emerald)' }}>Day 12 Proof Verified</div>
+              </div>
+            </div>
+          </div>
         </div>
-      )}
+
+        {/* Your Team: NeoVision */}
+        <div className="glass-panel" style={{ padding: '1.25rem' }}>
+          <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.8rem', display: 'flex', alignItems: 'center', justify: 'space-between' }}>
+            <span>Your Team: NeoVision</span>
+            <span className="badge badge-emerald">Progress 85%</span>
+          </h3>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', marginLeft: '6px' }}>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#6366f1', color: '#fff', fontSize: '0.75rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--bg-card)' }}>SC</div>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#a855f7', color: '#fff', fontSize: '0.75rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--bg-card)', marginLeft: '-8px' }}>HY</div>
+              <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#38bdf8', color: '#fff', fontSize: '0.75rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--bg-card)', marginLeft: '-8px' }}>AK</div>
+            </div>
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: 600 }}>3 Active Members</span>
+          </div>
+
+          <Link to="/day/12" className="btn btn-secondary" style={{ width: '100%', fontSize: '0.82rem', textDecoration: 'none' }}>
+            <span>Go to Day 12 Submission</span>
+            <ArrowRight size={14} />
+          </Link>
+        </div>
+
+      </div>
 
     </div>
   );
