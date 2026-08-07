@@ -18,10 +18,10 @@ The application provides the three exact routes required for automated screensho
 
 ## 📋 Hackathon Submission Requirements Checklist
 
-| Requirement | Status | Submission Link / Details |
+| Requirement | Status | Official Submission Link |
 | :--- | :---: | :--- |
 | **1. Public GitHub Repo** | ✅ **Live** | [https://github.com/Harshityadav9838/hackathon-ai-app](https://github.com/Harshityadav9838/hackathon-ai-app) |
-| **2. Live Deployed URL** | 🌐 **Live** | [https://hackathon-ai-app.vercel.app](https://hackathon-ai-app.vercel.app) |
+| **2. Live Deployed URL** | 🌐 **Live** | [https://hackathon-ai-app-kappa.vercel.app](https://hackathon-ai-app-kappa.vercel.app) |
 | **3. AI-Usage Log (`PROMPTS.md`)** | ✅ **Verified** | [`PROMPTS.md`](./PROMPTS.md) |
 
 ---
@@ -54,7 +54,7 @@ The application provides the three exact routes required for automated screensho
 - **Configurable Rate Limiting**: Exponential backoff on auth endpoints.
 - **Strict Input Validation**: URL schema checks for GitHub and LinkedIn inputs.
 - **Zero Secrets**: Environment variables isolated via `.env`.
-- **Dependency Vulnerabilities**: Audited dependency graph (`npm audit`).
+- **Dependency Vulnerabilities**: Audited dependency graph (`0 vulnerabilities`).
 - **Safe Error Handling**: User-facing generic error messages with server-side detailed logging.
 
 ---
