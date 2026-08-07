@@ -1,29 +1,28 @@
-/* 📱 Mobile-First 390px Design System & Dual Theme Tokens */
+/* 🌌 AR/VR Motion Graphics Design System & Dual Theme System */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
 
 :root {
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --transition-speed: 0.3s;
+  --transition-speed: 0.35s;
   --transition-cubic: cubic-bezier(0.16, 1, 0.3, 1);
-  --mobile-max-width: 440px;
 }
 
-/* 🌙 OLED DARK THEME (Default for late-night mobile builders) */
+/* 🌙 OBSIDIAN SPATIAL DARK THEME (Cyber AR/VR Aesthetics) */
 [data-theme="dark"] {
-  --bg-color: #07080c;
-  --bg-card: rgba(15, 18, 28, 0.85);
-  --bg-card-hover: rgba(22, 27, 42, 0.95);
-  --bg-header: rgba(7, 8, 12, 0.9);
-  --bg-nav: rgba(12, 15, 24, 0.95);
-  --bg-input: rgba(16, 20, 32, 0.9);
+  --bg-color: #07090e;
+  --bg-card: rgba(15, 20, 32, 0.75);
+  --bg-card-hover: rgba(24, 31, 48, 0.9);
+  --bg-header: rgba(7, 9, 14, 0.85);
+  --bg-nav: rgba(12, 16, 26, 0.9);
+  --bg-input: rgba(16, 22, 36, 0.9);
   
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
   
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-glow: rgba(99, 102, 241, 0.4);
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(99, 102, 241, 0.5);
   
   --accent-purple: #818cf8;
   --accent-cyan: #38bdf8;
@@ -34,21 +33,22 @@
   
   --gradient-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
   --gradient-streak: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-  --gradient-badge: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-gold: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 100%);
   
-  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.25);
-  --shadow-streak: 0 0 24px rgba(245, 158, 11, 0.35);
-  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.35);
+  --shadow-streak: 0 0 30px rgba(245, 158, 11, 0.4);
+  --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.5);
   
-  --grid-line: rgba(255, 255, 255, 0.025);
+  --grid-line: rgba(255, 255, 255, 0.04);
 }
 
-/* ☀️ LIGHT THEME (Spatial Clean & High Contrast) */
+/* ☀️ SPATIAL FROSTED LIGHT THEME (Translucent Luminous Aesthetics) */
 [data-theme="light"] {
-  --bg-color: #f8fafc;
-  --bg-card: rgba(255, 255, 255, 0.9);
-  --bg-card-hover: #ffffff;
-  --bg-header: rgba(248, 250, 252, 0.9);
+  --bg-color: #f4f6fc;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.98);
+  --bg-header: rgba(244, 246, 252, 0.85);
   --bg-nav: rgba(255, 255, 255, 0.95);
   --bg-input: #ffffff;
   
@@ -56,8 +56,8 @@
   --text-secondary: #475569;
   --text-muted: #94a3b8;
   
-  --border-color: rgba(0, 0, 0, 0.08);
-  --border-glow: rgba(99, 102, 241, 0.4);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-glow: rgba(99, 102, 241, 0.5);
   
   --accent-purple: #4f46e5;
   --accent-cyan: #0284c7;
@@ -68,16 +68,17 @@
   
   --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
   --gradient-streak: linear-gradient(135deg, #d97706 0%, #dc2626 100%);
-  --gradient-badge: linear-gradient(135deg, #059669 0%, #047857 100%);
+  --gradient-gold: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 100%);
   
-  --shadow-glow: 0 8px 24px rgba(79, 70, 229, 0.15);
-  --shadow-streak: 0 8px 24px rgba(217, 119, 6, 0.2);
-  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06);
+  --shadow-glow: 0 8px 25px rgba(79, 70, 229, 0.2);
+  --shadow-streak: 0 8px 25px rgba(217, 119, 6, 0.25);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
   
-  --grid-line: rgba(0, 0, 0, 0.03);
+  --grid-line: rgba(0, 0, 0, 0.04);
 }
 
-/* Global Reset & Base Mobile Container */
+/* Global Reset & Base Setup */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -85,8 +86,8 @@
   transition: background-color var(--transition-speed) var(--transition-cubic),
               border-color var(--transition-speed) var(--transition-cubic),
               color var(--transition-speed) var(--transition-cubic),
-              box-shadow var(--transition-speed) var(--transition-cubic);
-  -webkit-tap-highlight-color: transparent;
+              box-shadow var(--transition-speed) var(--transition-cubic),
+              transform var(--transition-speed) var(--transition-cubic);
 }
 
 body {
@@ -94,38 +95,35 @@ body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
   overflow-x: hidden;
   position: relative;
 }
 
-/* 390px Mobile Viewport Container Shell */
-#root {
-  width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+/* 🌌 Holographic Particle Grid Background Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
 }
 
-@media (min-width: 768px) {
-  #root {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
-
-/* Keyframe Animations */
+/* 🎥 AR/VR Motion Graphic Keyframes */
 @keyframes floatSpatial {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
 }
 
-@keyframes pulseFlame {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6)); }
-  50% { transform: scale(1.08); filter: drop-shadow(0 0 16px rgba(239, 68, 68, 0.9)); }
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; filter: blur(70px); transform: scale(1); }
+  50% { opacity: 0.7; filter: blur(95px); transform: scale(1.12); }
 }
 
 @keyframes shimmerSweep {
@@ -133,20 +131,57 @@ body {
   100% { transform: translateX(200%); }
 }
 
-/* Glassmorphism Card Utility */
+@keyframes flamePulse {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.7)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 20px rgba(239, 68, 68, 0.95)); transform: scale(1.08); }
+}
+
+/* 💎 Glassmorphism Card Utility */
 .glass-panel {
   background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 22px;
   box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
 }
 
+.glass-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-card);
+  pointer-events: none;
+}
+
 .glass-panel:hover {
   border-color: var(--border-glow);
+  box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+
+/* AR/VR Motion Utility Classes */
+.animate-float {
+  animation: floatSpatial 6s ease-in-out infinite;
+}
+
+.animate-pulse-bg {
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+.animate-flame {
+  animation: flamePulse 3s ease-in-out infinite;
+}
+
+/* Glowing Neon Text & Gradient */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Badge Utilities */
@@ -154,79 +189,85 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 9999px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
 }
 
 .badge-purple {
-  background: rgba(129, 140, 248, 0.12);
+  background: rgba(129, 140, 248, 0.15);
   color: var(--accent-purple);
-  border: 1px solid rgba(129, 140, 248, 0.3);
+  border: 1px solid rgba(129, 140, 248, 0.35);
+  box-shadow: 0 0 12px rgba(129, 140, 248, 0.15);
 }
 
 .badge-emerald {
-  background: rgba(52, 211, 153, 0.12);
+  background: rgba(52, 211, 153, 0.15);
   color: var(--accent-emerald);
-  border: 1px solid rgba(52, 211, 153, 0.3);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.15);
 }
 
 .badge-amber {
-  background: rgba(251, 191, 36, 0.12);
+  background: rgba(251, 191, 36, 0.15);
   color: var(--accent-amber);
-  border: 1px solid rgba(251, 191, 36, 0.3);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.15);
 }
 
 .badge-red {
-  background: rgba(248, 113, 113, 0.12);
+  background: rgba(248, 113, 113, 0.15);
   color: var(--accent-red);
-  border: 1px solid rgba(248, 113, 113, 0.3);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  box-shadow: 0 0 12px rgba(248, 113, 113, 0.15);
 }
 
-/* Button Component */
+/* Button Component with Glow Effects */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 12px 22px;
+  border-radius: 14px;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
   border: none;
-  transition: all 0.2s var(--transition-cubic);
+  transition: all 0.25s var(--transition-cubic);
   position: relative;
   overflow: hidden;
-  touch-action: manipulation;
 }
 
 .btn-primary {
   background: var(--gradient-primary);
   color: #ffffff;
-  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35);
+  box-shadow: var(--shadow-glow);
 }
 
-.btn-primary:active {
-  transform: scale(0.97);
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.55);
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text-primary);
   border: 1px solid var(--border-color);
 }
 
-.btn-secondary:active {
-  transform: scale(0.97);
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--border-glow);
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -234,6 +275,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.3);
-  border-radius: 3px;
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 4px;
 }
