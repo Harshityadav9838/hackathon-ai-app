@@ -109,3 +109,114 @@
     }
 
 }
+/* =================================
+   DARK THEME - FLOATING NEON RINGS
+================================= */
+
+[data-theme="dark"] .ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+
+    border: 8px solid transparent;
+
+    background:
+        linear-gradient(#050816, #050816) padding-box,
+        linear-gradient(
+            135deg,
+            rgba(180, 90, 255, 0.9),
+            rgba(50, 200, 255, 0.75)
+        ) border-box;
+
+    filter:
+        drop-shadow(0 0 8px rgba(168, 85, 247, 0.45))
+        drop-shadow(0 0 20px rgba(56, 189, 248, 0.25));
+
+    opacity: 0.8;
+
+    animation: ringFloat 8s ease-in-out infinite;
+}
+
+
+/* Ring 1 - Top Right */
+
+[data-theme="dark"] .r1 {
+    width: 105px;
+    height: 105px;
+
+    top: 100px;
+    right: 12%;
+
+    transform: rotate(25deg);
+}
+
+
+/* Ring 2 - Left */
+
+[data-theme="dark"] .r2 {
+    width: 75px;
+    height: 75px;
+
+    top: 32%;
+    left: 8%;
+
+    border-width: 7px;
+
+    animation-delay: 1.5s;
+}
+
+
+/* Ring 3 - Bottom Right */
+
+[data-theme="dark"] .r3 {
+    width: 65px;
+    height: 65px;
+
+    bottom: 18%;
+    right: 7%;
+
+    border-width: 6px;
+
+    animation-delay: 3s;
+}
+
+
+/* Ring 4 - Top Left */
+
+[data-theme="dark"] .r4 {
+    width: 45px;
+    height: 45px;
+
+    top: 15%;
+    left: 25%;
+
+    border-width: 5px;
+
+    opacity: 0.55;
+
+    animation-delay: 4.5s;
+}
+
+
+/* Ring movement */
+
+@keyframes ringFloat {
+
+    0% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translate3d(0, -22px, 0)
+            rotate(18deg);
+    }
+
+    100% {
+        transform:
+            translate3d(0, 0, 0)
+            rotate(0deg);
+    }
+}
