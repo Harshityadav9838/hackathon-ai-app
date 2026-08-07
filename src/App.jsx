@@ -34,7 +34,7 @@ return (
         flexDirection: "column",
         width: "100%",
         position: "relative",
-        zIndex: 1,
+        zIndex: 2,
       }}
     >
 
