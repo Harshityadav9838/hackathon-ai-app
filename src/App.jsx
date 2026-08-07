@@ -5,7 +5,7 @@ import BottomNav from './components/BottomNav';
 import LandingPage from './pages/LandingPage';
 import DashboardPage from './pages/DashboardPage';
 import ChallengeDay from './pages/ChallengeDay';
-import AnimatedBackground from "./components/AnimatedBackground";
+import AnimatedBackground from "./AnimatedBackground";
 
 export default function App() {
   // Theme state: default 'dark' (late-night mobile mode), persists in localStorage
