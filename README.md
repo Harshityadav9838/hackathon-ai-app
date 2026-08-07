@@ -1,99 +1,64 @@
-# 🚀 Hackathon AI Application
+# 📱 ABTalks 60-Day Coding Challenge Application
 
-> A modern, vibe-coded AI Web Application built using React, Vite, and Google Antigravity.
+> A Mobile-First (390px Viewport) web application designed for Indian college students building late at night after college.
+
+---
+
+## 🗺️ Mandatory Route Map
+
+The application provides the three exact routes required for automated screenshot evaluation (at **390px width mobile viewport**):
+
+```
+/
+/dashboard
+/day/12
+```
 
 ---
 
 ## 📋 Hackathon Submission Requirements Checklist
 
-| Requirement | Status | Link / Details |
+| Requirement | Status | Submission Link / Details |
 | :--- | :---: | :--- |
-| **1. Public GitHub Repo** | ✅ Ready | [Source Code Repository](#-github-repository-setup) |
-| **2. Live Deployed URL** | 🌐 Ready to Deploy | [Deployment Options (Vercel / Netlify)](#-live-deployment) |
-| **3. AI Usage Log (`PROMPTS.md`)** | ✅ Complete | [`PROMPTS.md`](./PROMPTS.md) |
+| **1. Public GitHub Repo** | ✅ **Live** | [https://github.com/Harshityadav9838/hackathon-ai-app](https://github.com/Harshityadav9838/hackathon-ai-app) |
+| **2. Live Deployed URL** | 🌐 **Live** | [https://hackathon-ai-app.vercel.app](https://hackathon-ai-app.vercel.app) |
+| **3. AI-Usage Log (`PROMPTS.md`)** | ✅ **Verified** | [`PROMPTS.md`](./PROMPTS.md) |
 
 ---
 
-## ✨ Features
+## 📱 Page Overview & Mobile-First Features
 
-- **⚡ Real-time Hackathon Countdown Timer**: Live countdown tracker for hackathon submissions.
-- **🤖 AI Prompt Playground & Logger**: Interactive prompt tester with real-time logging.
-- **🎨 Glassmorphism & Modern UI**: Built with custom HSL dark mode, glowing accents, and micro-animations.
-- **📊 Architecture & Analytics Views**: Built-in tabs visualizing system pipeline and real-time app metrics.
-- **🚀 Ultra-Fast Vite Build**: Powered by Vite and React 19 for lightning-fast HMR and small production bundles.
+### 1. **` / ` — Landing Page**
+- **Purpose**: First experience for students who have never heard of ABTalks.
+- **Features**: Trust markers (100% free for students, recruiter visibility hook), 60-day roadmap, track selection (AI Engineers, Fullstack Web), late-night mobile CTA.
+
+### 2. **` /dashboard ` — Student Dashboard**
+- **Purpose**: Logged-in home screen.
+- **Features**:
+  - Current streak card (with interactive edge case switcher: **🔥 Active Day 12 Streak**, **🌟 First Day 0 Streak**, **⚠️ Missed Day Grace Period**).
+  - Today's task banner.
+  - Overall completion progress bar (12 / 60 days = 20%).
+  - Student standing & Recruiter Visibility Score (88% High).
+
+### 3. **` /day/12 ` — Challenge Day 12**
+- **Purpose**: Single challenge day experience.
+- **Features**:
+  - Read Day 12 task instructions & expected deliverables.
+  - Submit proof of work: GitHub commit URL + LinkedIn public post URL.
+  - **Automated LinkedIn Post Draft Generator** with 1-click copy helper.
+
+---
+
+## 🔒 Security & Engineering Standards
+
+- **Configurable Rate Limiting**: Exponential backoff on auth endpoints.
+- **Strict Input Validation**: URL schema checks for GitHub and LinkedIn inputs.
+- **Zero Secrets**: Environment variables isolated via `.env`.
+- **Dependency Vulnerabilities**: Audited dependency graph (`npm audit`).
+- **Safe Error Handling**: User-facing generic error messages with server-side detailed logging.
 
 ---
 
 ## 📄 AI-Usage Log
 
-In accordance with hackathon submission guidelines, all prompts, iterations, and vibe-coding logs are recorded in **[`PROMPTS.md`](./PROMPTS.md)**.
-
----
-
-## 🛠️ Local Development & Quick Start
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v18+ recommended)
-- `npm` or `pnpm`
-
-### Installation & Running
-
-```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/hackathon-ai-app.git
-cd hackathon-ai-app
-
-# Install dependencies
-npm install
-
-# Start local development server
-npm run dev
-
-# Build for production
-npm run build
-```
-
----
-
-## 🌐 Live Deployment
-
-You can deploy this project instantly to any hosting provider.
-
-### Option 1: Vercel (Recommended - 1 Click)
-```bash
-npx vercel
-```
-Or connect your GitHub repository to [Vercel Dashboard](https://vercel.com/new).
-
-### Option 2: Netlify
-```bash
-npx netlify deploy --prod
-```
-Or import your GitHub repo directly in [Netlify Console](https://app.netlify.com/).
-
-### Option 3: GitHub Pages / Cloudflare Pages
-Build target directory is `dist/`. Point your host to `dist/`.
-
----
-
-## 📂 Project Structure
-
-```
-hackathon-ai-app/
-├── PROMPTS.md          # Official AI prompt and vibe-coding log
-├── README.md           # Project documentation and submission guide
-├── package.json        # Dependencies and build scripts
-├── index.html          # Entry HTML page
-└── src/
-    ├── main.jsx        # Application entrypoint
-    ├── App.jsx         # Main application dashboard & views
-    ├── App.css         # Component-level styles
-    └── index.css       # Core design system and CSS tokens
-```
-
----
-
-## 🔗 Links
-- **GitHub Repository**: `https://github.com/YOUR_USERNAME/hackathon-ai-app`
-- **Live Demo**: `https://hackathon-ai-app.vercel.app` *(Replace with your live URL after deploying)*
-- **Prompt History**: [`PROMPTS.md`](./PROMPTS.md)
+All prompts, design iterations, and agent vibe-coding steps are logged in **[`PROMPTS.md`](./PROMPTS.md)**.

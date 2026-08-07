@@ -1,64 +1,47 @@
-import React from 'react';
-import { Sparkles, Rocket } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import BottomNav from './components/BottomNav';
+import LandingPage from './pages/LandingPage';
+import DashboardPage from './pages/DashboardPage';
+import ChallengeDay from './pages/ChallengeDay';
 
 export default function App() {
+  // Theme state: default 'dark' (late-night mobile mode), persists in localStorage
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '2rem',
-      textAlign: 'center'
-    }}>
-      <div className="glass-panel" style={{
-        padding: '3rem 2.5rem',
-        maxWidth: '640px',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '1.25rem',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{
-          width: '56px',
-          height: '56px',
-          borderRadius: '16px',
-          background: 'var(--gradient-primary)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: 'var(--shadow-glow)'
-        }}>
-          <Rocket size={28} color="#fff" />
-        </div>
+    <BrowserRouter>
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100%' }}>
+        
+        {/* Sticky Mobile Header */}
+        <Header theme={theme} toggleTheme={toggleTheme} />
 
-        <span className="badge badge-purple">
-          <Sparkles size={14} /> Hackathon Ready Workspace
-        </span>
+        {/* Route Container (390px Mobile Optimized) */}
+        <main style={{ flex: 1, padding: '1rem', width: '100%', maxWidth: '600px', margin: '0 auto' }}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/day/12" element={<ChallengeDay />} />
+            {/* Catch-all fallback route redirects to Landing Page */}
+            <Route path="*" element={<LandingPage />} />
+          </Routes>
+        </main>
 
-        <h1 style={{
-          fontSize: '2.2rem',
-          fontWeight: 800,
-          fontFamily: 'var(--font-display)',
-          lineHeight: 1.2
-        }}>
-          Ready for your <span className="text-gradient">Hackathon Project</span>
-        </h1>
-
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: 1.6 }}>
-          Paste your unlocked hackathon prompt or topic in our chat, and I will build your complete project live right here!
-        </p>
-
-        <div style={{ display: 'flex', gap: '8px', marginTop: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <span className="badge badge-emerald">PROMPTS.md Ready</span>
-          <span className="badge badge-purple">React 19 + Vite</span>
-          <span className="badge badge-purple">Vercel Deployable</span>
-        </div>
+        {/* Mobile-First Bottom Navigation Bar */}
+        <BottomNav />
       </div>
-    </div>
+    </BrowserRouter>
   );
 }

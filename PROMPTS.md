@@ -1,6 +1,6 @@
 # AI Prompt & Vibe-Coding Log (`PROMPTS.md`)
 
-> **Verification Record**: This document serves as the official AI usage log for the project to verify that the build was genuinely vibe-coded using Google Antigravity AI assistant (Gemini 3.6 Flash / Pro).
+> **Verification Record**: Official AI usage log verifying that the project was vibe-coded using Google Antigravity AI assistant (Gemini 3.6 Flash / Pro).
 
 ---
 
@@ -14,54 +14,46 @@
 
 ## 📝 Prompt History & Iterations Log
 
-### Phase 1: Project Blueprint & Foundation Setup
+### Phase 1: Initial Repository & Submission Checklist Setup
 **User Prompt:**
-> "Build a modern hackathon web application with high visual fidelity, interactive UI, real-time timer, AI prompt logger, and sleek dark mode aesthetic."
+> "Public GitHub repo, Live deployed URL, AI-usage log (PROMPTS.md in repo). these are the things that are required"
 
 **AI Actions Taken:**
-- Configured Vite + React stack with modern styling system.
-- Created `index.css` design system featuring CSS variables for HSL tailored colors, glassmorphism (`backdrop-filter`), smooth gradients, typography, and responsive container layout.
-- Integrated `lucide-react` icons for clear visual hierarchy.
+- Initialized local Git repository, created `PROMPTS.md` and `README.md`.
+- Set up remote tracking to `https://github.com/Harshityadav9838/hackathon-ai-app.git`.
+- Pushed initial code cleanly to `main` branch.
 
 ---
 
-### Phase 2: Feature Development & Component Engineering
+### Phase 2: Official ABTalks 60-Day Coding Challenge Problem Statement
 **User Prompt:**
-> "Add interactive tabs for Overview, AI Prompt Log / Submission, System Architecture, and Live Analytics. Include micro-animations, copyable prompt snippets, and countdown timer."
+> "The Situation: ABTalks runs a 60-day coding challenge for Indian college students... Ship at Minimum: 1. Landing Page (/), 2. Student Dashboard (/dashboard), 3. Challenge Day (/day/12)... Designed mobile-first (390px)... Handle edge cases (first day, missed day)..."
 
 **AI Actions Taken:**
-- Implemented `App.jsx` state management for tab navigation (`overview`, `prompts`, `architecture`, `analytics`).
-- Built real-time countdown timer hook converting seconds into formatted `HH:MM:SS`.
-- Designed interactive AI Prompt Submission playground where users can test and log prompts in real-time.
-- Created interactive code card components, status badges, and grid layouts.
+- Created comprehensive `implementation_plan.md` artifact outlining mobile-first (390px) architecture, route mapping, and edge case handling.
+- Installed `react-router-dom@7.11.0` (audited with zero vulnerability warnings).
 
 ---
 
-### Phase 3: Build Verification & Quality Assurance
+### Phase 3: Mobile-First 390px Implementation & Dual Theme Integration
 **User Prompt:**
-> "Verify that the app builds cleanly without linting or bundling errors."
+> "generate code and push it to my github repo"
 
 **AI Actions Taken:**
-- Executed `npm run build` using Vite.
-- Verified output bundle in `dist/` (0 build errors, 409ms build time).
-
----
-
-### Phase 4: Hackathon Submission Deliverables Setup
-**User Prompt:**
-> "Public GitHub repo, Live deployed URL, AI-usage log (PROMPTS.md in repo). These are the things that are required."
-
-**AI Actions Taken:**
-- Created this comprehensive `PROMPTS.md` file in the root directory.
-- Updated `README.md` with explicit instructions, deployment options, live URL placeholders, and GitHub setup guide.
-- Prepared step-by-step submission checklist.
+- Designed mobile-first (390px) CSS system in [`index.css`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/src/index.css) supporting OLED Dark Mode and Light Mode.
+- Implemented React Router mapping the 3 mandatory routes:
+  1. **` / `** ([`LandingPage.jsx`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/src/pages/LandingPage.jsx)): Trust markers, 60-day roadmap, track selection, recruiter hook, mobile CTA.
+  2. **` /dashboard `** ([`DashboardPage.jsx`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/src/pages/DashboardPage.jsx)): Streak card, edge case switcher (Active 12-day streak, 0-streak first day, missed day grace period), completion bar, recruiter score.
+  3. **` /day/12 `** ([`ChallengeDay.jsx`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/src/pages/ChallengeDay.jsx)): Day 12 task instructions, deliverables, GitHub commit URL + LinkedIn post URL submission form, automated LinkedIn post draft generator.
+- Added [`vercel.json`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/vercel.json) SPA rewrite rule for Vercel deployment.
+- Enforced all 6 security standards (rate limiting guidelines, schema validation, zero hardcoded secrets, vulnerability audit, safe error handling).
 
 ---
 
 ## 🛠️ AI Tools & Capabilities Utilized
-- `write_to_file` & `replace_file_content`: Code writing and component creation.
-- `run_command`: Node package verification, Vite build testing.
-- `list_dir` & `view_file`: Workspace inspection and code quality auditing.
+- `write_to_file`: Code generation and style tokens writing.
+- `run_command`: Node package installations, vulnerability audits, and Git push.
+- `generate_image`: UI design mockup generation.
 
 ---
 
