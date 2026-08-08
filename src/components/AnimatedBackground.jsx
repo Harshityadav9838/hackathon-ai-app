@@ -39,7 +39,15 @@ export default function AnimatedBackground() {
           <div className="light-beam beam-1" />
           <div className="light-beam beam-2" />
           <div className="light-beam beam-3" />
+         
           <div className="crystal-shape" />
+<div className="crystal-shape-2" />
+<div className="crystal-shape-3" />
+<div className="crystal-shape-4" />
+<div className="crystal-shape-5" />
+<div className="crystal-shape-6" />
+<div className="crystal-shape-7" />
+<div className="crystal-shape-8" />
 
           <img src="/cube1.svg" className="float-asset cube-asset cube-asset-light-1" alt="" />
           <img src="/ring1.svg" className="float-asset ring-asset ring-asset-light-1" alt="" />
