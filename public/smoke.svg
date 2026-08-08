@@ -1,6 +1,3 @@
-/* Placeholder smoke image (SVG) - simple soft radial gradient
-   Saved as public/smoke.svg - lightweight and scales well */
-
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
   <defs>
     <radialGradient id="g1" cx="30%" cy="20%" r="60%">
@@ -14,7 +11,7 @@
       <stop offset="100%" stop-color="#000" stop-opacity="0" />
     </radialGradient>
   </defs>
-  <rect width="100%" height="100%" fill="#000" />
+  <rect width="100%" height="100%" fill="#07090e" />
   <g>
     <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#g1)" />
     <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#g2)" opacity="0.8" />
