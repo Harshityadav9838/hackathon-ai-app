@@ -14,7 +14,11 @@ import {
   ChevronRight,
   TrendingUp,
   MoreHorizontal,
-  Bell
+  Bell,
+  Shield,
+  Zap,
+  Award,
+  Lock
 } from 'lucide-react';
 import EdgeCaseSwitcher from '../components/EdgeCaseSwitcher';
 
@@ -320,17 +324,234 @@ export default function DashboardPage() {
                 <div>
                   <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-pink)', lineHeight: 1 }}>
                     MISSED DAY 11
-                  </div>
+                  </div>)}
+      </div>
+
+      {/* 📊 Momentum Status */}
+      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem', position: 'relative', zIndex: 2 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <span className="badge badge-emerald">MOMENTUM STATUS</span>
+          <span className="badge badge-purple" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <Shield size={12} /> Shield
+          </span>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '1.1rem' }}>
+          <div style={{ width: '54px', height: '54px', borderRadius: '50%', border: '2px solid var(--accent-emerald)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-emerald)' }}>
+            <Zap size={22} />
+          </div>
+          <div>
+            <div style={{ fontSize: '1.3rem', fontWeight: 800 }}>
+              12 <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-secondary)' }}>DAY STREAK</span>
+            </div>
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Consistency active. Continue your momentum.</div>
+          </div>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '6px', marginBottom: '1rem' }}>
+          {[
+            { d: 'THU', date: 'Aug 6' },
+            { d: 'FRI', date: 'Aug 7' },
+            { d: 'SAT', date: 'Aug 8' },
+            { d: 'SUN', date: 'Today' },
+            { d: 'MON', date: 'Aug 10' },
+            { d: 'TUE', date: 'Aug 11' },
+            { d: 'WED', date: 'Aug 12' },
+          ].map((item, i) => (
+            <div key={i} style={{
+              textAlign: 'center',
+              padding: '8px 4px',
+              borderRadius: '10px',
+              background: item.date === 'Today' ? 'rgba(52, 211, 153, 0.1)' : 'var(--bg-input)',
+              border: item.date === 'Today' ? '1px solid var(--accent-emerald)' : '1px solid transparent'
+            }}>
+              <div style={{ fontSize: '0.62rem', fontWeight: 700, color: 'var(--text-muted)' }}>{item.d}</div>
+              <div style={{ fontSize: '0.68rem', fontWeight: 700, marginBottom: '4px' }}>{item.date}</div>
+              {item.date === 'Today'
+                ? <span style={{ color: 'var(--accent-emerald)', fontWeight: 800 }}>?</span>
+                : <Lock size={12} color="var(--text-muted)" style={{ margin: '0 auto' }} />
+              }
+            </div>
+          ))}
+        </div>
+
+        <div style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px' }}>
+          <span>●</span> Submit before 2:00 AM protocol deadline.
+        </div>
+        <div style={{ fontSize: '0.75rem', color: 'var(--accent-amber)' }}>
+          🌙 Late Night Protocol Active
+        </div>
+      </div>
+
+      {/* 📈 Weekly Activity Ledger */}
+      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem', position: 'relative', zIndex: 2 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Calendar size={16} color="var(--accent-emerald)" />
+            <span style={{ fontSize: '0.85rem', fontWeight: 800 }}>WEEKLY ACTIVITY LEDGER</span>
+          </div>
+          <span style={{ fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>0/7 Tasks Shipped This Week</span>
+        </div>
+
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-end', height: '90px', marginBottom: '0.8rem' }}>
+          {[0, 0, 0, 0, 0, 0, 0].map((h, i) => (
+            <div key={i} style={{
+              flex: 1,
+              height: '100%',
+              borderRadius: '8px',
+              background: 'var(--bg-input)',
+              border: '1px solid var(--border-color)',
+              display: 'flex',
+              alignItems: 'flex-end'
+            }}>
+              <div style={{ width: '100%', height: `${h}%`, borderRadius: '8px', background: 'var(--gradient-neon)' }} />
+            </div>
+          ))}
+        </div>
+
+        <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontStyle: 'italic', textAlign: 'center' }}>
+          Hover over any day pillar to view detailed submission proof stats.
+        </p>
+      </div>
+
+      {/* 🎯 Overall Progress Meter */}
+      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem', position: 'relative', zIndex: 2 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <TrendingUp size={16} color="var(--accent-emerald)" />
+            <span style={{ fontSize: '0.85rem', fontWeight: 800 }}>OVERALL PROGRESS METER</span>
+          </div>
+          <span className="badge badge-amber">60-DAY JOURNEY</span>
+        </div>
+
+        <div className="progress-ring-outer">
+          <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+            <div style={{ fontSize: '1.6rem', fontWeight: 800 }}>20%</div>
+            <div style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--text-muted)' }}>COMPLETED</div>
+          </div>
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '1rem', marginBottom: '0.4rem' }}>
+          <span style={{ fontSize: '1.3rem', fontWeight: 800 }}>12</span>
+          <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}> / 60</span>
+        </div>
+        <div style={{ textAlign: 'center', fontSize: '0.75rem', color: 'var(--accent-emerald)', fontWeight: 700, marginBottom: '0.6rem' }}>
+          DAYS COMPLETED
+        </div>
+        <p style={{ textAlign: 'center', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+          Every daily task builds your permanent proof of work. Keep pushing forward!
+        </p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem' }}>
+          <div style={{ padding: '0.8rem', borderRadius: '10px', background: 'var(--bg-input)', textAlign: 'center' }}>
+            <div style={{ fontSize: '1rem', fontWeight: 800 }}>12</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Days completed</div>
+          </div>
+          <div style={{ padding: '0.8rem', borderRadius: '10px', background: 'var(--bg-input)', textAlign: 'center' }}>
+            <div style={{ fontSize: '1rem', fontWeight: 800 }}>48</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Days remaining</div>
+          </div>
+          <div style={{ padding: '0.8rem', borderRadius: '10px', background: 'var(--bg-input)', textAlign: 'center' }}>
+            <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>12</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Current streak</div>
+          </div>
+          <div style={{ padding: '0.8rem', borderRadius: '10px', background: 'var(--bg-input)', textAlign: 'center' }}>
+            <div style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--accent-amber)' }}>14</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>Best streak</div>
+          </div>
+        </div>
+      </div>
+
+      {/* 🏆 Leaderboard */}
+      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem', position: 'relative', zIndex: 2 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Trophy size={16} color="var(--accent-amber)" />
+            <span style={{ fontSize: '0.85rem', fontWeight: 800 }}>YOUR STANDING & LEADERBOARD</span>
+          </div>
+          <span className="badge badge-emerald">Top 8%</span>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0.8rem', borderRadius: '10px', background: 'var(--bg-input)', marginBottom: '1rem' }}>
+          <div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 700 }}>CURRENT RANK</div>
+            <div style={{ fontSize: '1.3rem', fontWeight: 800 }}>#24 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>/ 300</span></div>
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 700 }}>TOTAL EXPERIENCE</div>
+            <div style={{ fontSize: '1.3rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '4px', justifyContent: 'flex-end' }}>
+              <Zap size={16} color="var(--accent-amber)" /> 1,240 XP
+            </div>
+          </div>
+        </div>
+
+        {[
+          { rank: '#22', name: 'Alex Rivers', handle: '@arivers', streak: '14d', xp: '1390 XP', you: false },
+          { rank: '#24', name: 'Developer', handle: '@student_dev', streak: '12d', xp: '1240 XP', you: true },
+          { rank: '#24', name: 'Priya Sharma', handle: '@psharma_code', streak: '12d', xp: '1290 XP', you: false },
+        ].map((p, i) => (
+          <div key={i} style={{
+            display: 'flex', alignItems: 'center', gap: '10px', padding: '0.7rem',
+            borderRadius: '10px',
+            border: p.you ? '1px solid var(--accent-emerald)' : '1px solid transparent',
+            background: p.you ? 'rgba(52, 211, 153, 0.06)' : 'transparent',
+            marginBottom: i < 2 ? '6px' : 0
+          }}>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-muted)', width: '28px' }}>{p.rank}</span>
+            <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: 'var(--gradient-neon)', color: '#fff', fontSize: '0.75rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {p.name.charAt(0)}
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                {p.name}
+                {p.you && <span className="badge badge-emerald" style={{ fontSize: '0.6rem', padding: '2px 6px' }}>YOU</span>}
+              </div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{p.handle}</div>
+            </div>
+            <div style={{ textAlign: 'right', fontSize: '0.72rem' }}>
+              <div style={{ color: 'var(--accent-amber)', fontWeight: 700 }}>{p.streak}</div>
+              <div style={{ color: 'var(--text-muted)' }}>{p.xp}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 🎖️ Achievements & Badges */}
+      <div className="glass-panel" style={{ padding: '1.25rem', marginBottom: '1.25rem', position: 'relative', zIndex: 2 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Award size={16} color="var(--accent-amber)" />
+            <span style={{ fontSize: '0.85rem', fontWeight: 800 }}>ACHIEVEMENTS & BADGES</span>
+          </div>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700 }}>3 / 5 UNLOCKED</span>
+        </div>
+
+        <div style={{ display: 'flex', gap: '1rem', overflowX: 'auto', paddingBottom: '4px' }}>
+          {[
+            { icon: '🏁', title: 'First Commit', desc: 'Shipped Day 1 coding task and published proof', achieved: 'Achieved on Day 1', unlocked: true },
+            { icon: '🔥', title: '7 Day Streak', desc: 'Maintained an uninterrupted coding streak', achieved: 'Achieved on Day 7', unlocked: true },
+          ].map((b, i) => (
+            <div key={i} style={{ minWidth: '220px', padding: '1rem', borderRadius: '14px', background: 'var(--bg-input)', border: '1px solid var(--border-color)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.6rem' }}>
+                <div style={{ fontSize: '1.6rem' }}>{b.icon}</div>
+                {b.unlocked && <span className="badge badge-emerald" style={{ fontSize: '0.6rem' }}>UNLOCKED</span>}
+              </div>
+              <div style={{ fontSize: '0.9rem', fontWeight: 800, marginBottom: '4px' }}>{b.title}</div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '6px' }}>{b.desc}</div>
+              <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>{b.achieved}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 📑 BOTTOM 3 CARDS: Hackathon Activity + Your Team: NeoVision + Upcoming Events */}
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Complete Day 12 to activate Streak Shield!</div>
                 </div>
               </div>
               <span className="badge badge-purple">Grace Period</span>
             </div>
           </div>
-        )}
-      </div>
-
-      {/* 📑 BOTTOM 3 CARDS: Hackathon Activity + Your Team: NeoVision + Upcoming Events */}
+       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', position: 'relative', zIndex: 2 }}>
         
         {/* Hackathon Activity */}
