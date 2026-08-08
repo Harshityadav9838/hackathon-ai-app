@@ -586,13 +586,17 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* 📑 BOTTOM 3 CARDS: Hackathon Activity + Your Team: NeoVision + Upcoming Events */}
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Complete Day 12 to activate Streak Shield!</div>
-                </div>
-              </div>
-              <span className="badge badge-purple">Grace Period</span>
-            </div>
-          </div>
+     {/* 📑 BOTTOM 3 CARDS: Hackathon Activity + Your Team: NeoVision + Upcoming Events */}
+
+<div
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '1.25rem',
+    position: 'relative',
+    zIndex: 2,
+  }}
+>
        
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', position: 'relative', zIndex: 2 }}>
         
