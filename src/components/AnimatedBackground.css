@@ -89,9 +89,9 @@
 /* ---------- Light theme animated background (appended) ---------- */
 
 .animated-bg.light {
-  --beam-1: rgba(190,200,255,0.18);
-  --beam-2: rgba(255,235,210,0.12);
-  --beam-3: rgba(200,255,240,0.10);
+  --beam-1: rgba(196,181,253,0.32);
+  --beam-2: rgba(249,168,212,0.24);
+  --beam-3: rgba(165,243,252,0.28);
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -115,13 +115,13 @@
 /* pastel light beams */
 .animated-bg.light .light-beam {
   position: absolute;
-  width: 40%;
-  height: 30%;
+  width: 55%;
+  height: 45%;
   border-radius: 12px;
-  filter: blur(36px) saturate(130%);
+  filter: blur(50px) saturate(160%);
   transform-origin: center;
-  mix-blend-mode: screen;
-  opacity: 0.9;
+  mix-blend-mode: multiply;
+  opacity: 1;
 }
 .animated-bg.light .beam-1 {
   top: -6%;
@@ -141,6 +141,18 @@
   right: 6%;
   background: linear-gradient(120deg, var(--beam-3), transparent 60%);
   animation: floatBeam 22s ease-in-out infinite;
+}
+.animated-bg.light .crystal-shape {
+  position: absolute;
+  top: -8%;
+  right: -6%;
+  width: 340px;
+  height: 340px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(196,181,253,0.35) 45%, rgba(165,243,252,0.3));
+  clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 18% 100%, 0% 35%);
+  filter: blur(0.5px) drop-shadow(0 20px 40px rgba(124,58,237,0.12));
+  opacity: 0.85;
+  animation: floatSoft 16s ease-in-out infinite;
 }
 
 /* floating pastel cubes / rings (reuse existing SVGs or add new pastel assets) */
