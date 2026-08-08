@@ -21,3 +21,8 @@
   color: #fff;
   box-shadow: 0 8px 30px rgba(107,124,255,0.12);
 }
+/* Make inline status pills match glass/translucent cards (dark & light) */ [data-theme="dark"] .badge, [data-theme="dark"] .pill, [data-theme="dark"] .chip, [data-theme="dark"] .status, [data-theme="dark"] .streak-pill, [data-theme="dark"] .streak-badge { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.006)); border: 1px solid rgba(255,255,255,0.04); color: var(--text-primary); box-shadow: 0 10px 24px rgba(2,6,23,0.45), 0 0 12px rgba(168,85,247,0.02); padding: 6px 10px; border-radius: 8px; backdrop-filter: blur(6px) saturate(120%); }
+
+/* Light-theme version */ [data-theme="light"] .badge, [data-theme="light"] .pill, [data-theme="light"] .chip, [data-theme="light"] .status, [data-theme="light"] .streak-pill, [data-theme="light"] .streak-badge { background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(250,250,250,0.86)); border: 1px solid rgba(11,18,32,0.04); color: #0b1220; box-shadow: 0 8px 18px rgba(11,18,32,0.05); padding: 6px 10px; border-radius: 8px; }
+
+/* Force removal of any hard white background if present */ .badge, .pill, .chip, .status, .streak-pill, .streak-badge { background-image: none !important; background-color: transparent !important; }
