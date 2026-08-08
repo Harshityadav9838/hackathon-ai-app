@@ -1,3 +1,90 @@
+/* ---------- Base (shared by both themes) ---------- */
+
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-smoke {
+  position: absolute;
+  inset: 0;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  transform: translateY(-6%);
+}
+
+.float-asset {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ---------- Dark theme animated background ---------- */
+
+.animated-bg.dark {
+  background: #07090e;
+}
+
+.animated-bg.dark .bg-smoke.smoke-dark {
+  filter: blur(6px) saturate(140%) brightness(0.95);
+  opacity: 0.95;
+}
+
+.animated-bg.dark .ring-asset-1 {
+  top: 8%;
+  right: 6%;
+  width: 170px;
+  height: 170px;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 32px rgba(168, 85, 247, 0.45));
+  animation: floatSoft 12s ease-in-out infinite;
+}
+
+.animated-bg.dark .cube-asset-1 {
+  bottom: 14%;
+  left: 6%;
+  width: 130px;
+  height: 130px;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 26px rgba(56, 189, 248, 0.4));
+  animation: floatSoft 15s ease-in-out infinite reverse;
+}
+
+/* subtle glowing rings for depth (dark) */
+.animated-bg.dark .ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(168, 85, 247, 0.16);
+}
+.animated-bg.dark .r1 {
+  width: 520px; height: 520px; top: -140px; left: -180px;
+  border-color: rgba(168, 85, 247, 0.16);
+}
+.animated-bg.dark .r2 {
+  width: 380px; height: 380px; top: 18%; right: -150px;
+  border-color: rgba(56, 189, 248, 0.14);
+}
+.animated-bg.dark .r3 {
+  width: 260px; height: 260px; bottom: -70px; left: 18%;
+  border-color: rgba(244, 114, 182, 0.12);
+}
+.animated-bg.dark .r4 {
+  width: 640px; height: 640px; bottom: -280px; right: -200px;
+  border-color: rgba(168, 85, 247, 0.09);
+}
+.animated-bg.dark .r5 {
+  width: 190px; height: 190px; top: 42%; left: 46%;
+  border-color: rgba(56, 189, 248, 0.1);
+}
+
+@media (max-width: 720px) {
+  .animated-bg.dark .float-asset { display: none; }
+  .animated-bg.dark .r4,
+  .animated-bg.dark .r5 { display: none; }
+}
 /* ---------- Light theme animated background (appended) ---------- */
 
 .animated-bg.light {
