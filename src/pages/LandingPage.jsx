@@ -93,6 +93,63 @@ export default function LandingPage() {
           </span>
         </div>
       </section>
+      {/* 📈 Momentum Trajectory */}
+      <section style={{ marginBottom: '1.75rem', position: 'relative', zIndex: 2 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem' }}>
+          <span style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--text-muted)', letterSpacing: '0.5px' }}>MOMENTUM TRAJECTORY</span>
+          <span style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--accent-emerald)', letterSpacing: '0.5px' }}>60 DAYS • PUBLIC PROOF</span>
+        </div>
+        <div className="glass-panel" style={{ padding: '1rem', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.6rem' }}>
+          <div style={{ textAlign: 'center', padding: '0.6rem 0.3rem' }}>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '4px' }}>DAY 01</div>
+            <div style={{ fontSize: '0.95rem', fontWeight: 800 }}>START</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--accent-emerald)', marginTop: '4px' }}>Commit ✓</div>
+          </div>
+          <div style={{ textAlign: 'center', padding: '0.6rem 0.3rem', borderRadius: '12px', border: '1px solid var(--accent-emerald)', background: 'rgba(52, 211, 153, 0.08)' }}>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '4px' }}>DAY 12</div>
+            <div style={{ fontSize: '0.95rem', fontWeight: 800 }}>ACTIVE</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--accent-emerald)', marginTop: '4px' }}>12d Streak ⚡</div>
+          </div>
+          <div style={{ textAlign: 'center', padding: '0.6rem 0.3rem' }}>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '4px' }}>DAY 30</div>
+            <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--accent-amber)' }}>HALFWAY</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '4px' }}>Milestone 🚀</div>
+          </div>
+          <div style={{ textAlign: 'center', padding: '0.6rem 0.3rem' }}>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', fontWeight: 700, marginBottom: '4px' }}>DAY 60</div>
+            <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--text-muted)' }}>FINISH</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '4px' }}>Mastery 🏆</div>
+          </div>
+        </div>
+      </section>
+
+      {/* 📊 Stats Grid */}
+      <section style={{ marginBottom: '1.75rem', position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+        <div className="glass-panel" style={{ padding: '1.25rem', textAlign: 'center' }}>
+          <div style={{ fontSize: '1.6rem', fontWeight: 800 }}>10K+</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700, marginTop: '2px' }}>STUDENTS</div>
+        </div>
+        <div className="glass-panel" style={{ padding: '1.25rem', textAlign: 'center' }}>
+          <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent-emerald)' }}>60</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700, marginTop: '2px' }}>DAYS</div>
+        </div>
+        <div className="glass-panel" style={{ padding: '1.25rem', textAlign: 'center' }}>
+          <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--accent-amber)' }}>1M+</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700, marginTop: '2px' }}>LINES OF CODE</div>
+        </div>
+        <div className="glass-panel" style={{ padding: '1.25rem', textAlign: 'center' }}>
+          <div style={{ fontSize: '1.6rem', fontWeight: 800 }}>95%</div>
+          <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 700, marginTop: '2px' }}>CONSISTENCY</div>
+        </div>
+      </section>
+
+      {/* 💬 Testimonial */}
+      <section className="glass-panel" style={{ padding: '1.5rem', textAlign: 'center', marginBottom: '1.75rem', position: 'relative', zIndex: 2 }}>
+        <div style={{ color: 'var(--accent-amber)', fontSize: '1.1rem', letterSpacing: '3px', marginBottom: '0.6rem' }}>★★★★★</div>
+        <p style={{ fontStyle: 'italic', fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+          "The hardest part wasn't coding. It was showing up every day. ABTalks turned my sporadic effort into a non-negotiable daily streak."
+        </p>
+      </section>
 
       {/* ⚡ How It Works (Proof of Work System) */}
       <section style={{ marginBottom: '1.75rem', position: 'relative', zIndex: 2 }}>
@@ -173,6 +230,64 @@ export default function LandingPage() {
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '4px' }}>Modern React & Node.js</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Build REST APIs, real-time dashboards, and production SaaS tools.</p>
           </div>
+        </div>
+      </section>
+      {/* 🗺️ Milestone Roadmap */}
+      <section style={{ marginBottom: '1.75rem', position: 'relative', zIndex: 2 }}>
+        <div className="badge badge-purple" style={{ marginBottom: '0.8rem' }}>MILESTONE ROADMAP</div>
+        <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.4rem' }}>The 60-Day Transformation</h2>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.25rem' }}>
+          Consistency becomes effortless as your streak momentum grows.
+        </p>
+
+        <div style={{ position: 'relative', paddingLeft: '24px' }}>
+          <div style={{ position: 'absolute', left: '5px', top: '6px', bottom: '6px', width: '2px', background: 'var(--border-color)' }} />
+
+          {[
+            { day: 'DAY 01', title: 'Start Your Journey', desc: 'Set up your local environment & ship your first commit.', color: 'var(--accent-emerald)' },
+            { day: 'DAY 12 (YOU ARE HERE)', title: 'Build Momentum', desc: 'Coding daily is now becoming a permanent muscle memory.', color: 'var(--accent-emerald)' },
+            { day: 'DAY 30 (HALFWAY)', title: 'Halfway Milestone 🚀', desc: '30 complete projects shipped to GitHub. Halfway to mastery!', color: 'var(--accent-amber)' },
+            { day: 'DAY 45', title: 'Unstoppable Streak', desc: 'Advanced fullstack architectures & production APIs.', color: 'var(--accent-emerald)' },
+            { day: 'DAY 60', title: 'Finish Strong 🏆', desc: 'Graduate as a top 5% verified consistent developer.', color: 'var(--accent-amber)' },
+          ].map((item, i) => (
+            <div key={i} style={{ position: 'relative', marginBottom: i === 4 ? 0 : '1.4rem' }}>
+              <div style={{ position: 'absolute', left: '-24px', top: '4px', width: '10px', height: '10px', borderRadius: '50%', background: item.color }} />
+              <div style={{ fontSize: '0.7rem', fontWeight: 800, color: item.color, letterSpacing: '0.5px', marginBottom: '2px' }}>{item.day}</div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 800, marginBottom: '2px' }}>{item.title}</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{item.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 🧩 GitHub Activity Graph Teaser */}
+      <section className="glass-panel" style={{ padding: '1.5rem', marginBottom: '1.75rem', position: 'relative', zIndex: 2, textAlign: 'center' }}>
+        <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '0.4rem' }}>Your future GitHub profile starts today.</h3>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.25rem' }}>
+          Transform empty grid blocks into a dense wall of daily commits that recruiters love.
+        </p>
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem', fontSize: '0.72rem', fontWeight: 700 }}>
+          <span style={{ color: 'var(--text-muted)' }}>60 Days Activity Graph</span>
+          <span style={{ color: 'var(--accent-emerald)' }}>0 Total Commits</span>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '4px' }}>
+          {Array.from({ length: 60 }, (_, i) => (
+            <div key={i} style={{
+              aspectRatio: '1',
+              borderRadius: '4px',
+              background: 'var(--bg-input)',
+              border: '1px solid var(--border-color)',
+              fontSize: '0.5rem',
+              color: 'var(--text-muted)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {i + 1}
+            </div>
+          ))}
         </div>
       </section>
 
