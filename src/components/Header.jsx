@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Zap, Sun, Moon, Calendar, Layers, User, Settings, HelpCircle, LogOut, ChevronDown } from 'lucide-react';
+import { Zap, Sun, Moon, Calendar, Layers, User, Settings, HelpCircle, LogOut, ChevronDown, X } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 export default function Header({ theme, toggleTheme }) {
@@ -7,14 +7,27 @@ export default function Header({ theme, toggleTheme }) {
     return localStorage.getItem('abtalks_user_name') || 'Student Builder';
   });
 
+  const [notifications, setNotifications] = useState(() => {
+    return localStorage.getItem('abtalks_notifications') !== 'false';
+  });
+
   const [isEditing, setIsEditing] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const menuRef = useRef(null);
 
   const handleNameChange = (e) => {
     const val = e.target.value;
     setUserName(val);
     localStorage.setItem('abtalks_user_name', val);
+  };
+
+  const toggleNotifications = () => {
+    setNotifications((prev) => {
+      const next = !prev;
+      localStorage.setItem('abtalks_notifications', String(next));
+      return next;
+    });
   };
 
   useEffect(() => {
@@ -182,7 +195,7 @@ export default function Header({ theme, toggleTheme }) {
                   <span>Account</span>
                 </button>
 
-                <button onClick={() => setMenuOpen(false)} className="header-menu-item">
+                <button onClick={() => { setMenuOpen(false); setSettingsOpen(true); }} className="header-menu-item">
                   <Settings size={16} />
                   <span>Settings</span>
                 </button>
@@ -210,6 +223,55 @@ export default function Header({ theme, toggleTheme }) {
 
         </div>
       </div>
-    </header>
-  );
-}
+
+      {settingsOpen && (
+        <div
+          onClick={() => setSettingsOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.5)',
+            backdropFilter: 'blur(4px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 300,
+            padding: '1rem'
+          }}>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="glass-panel"
+            style={{ width: '100%', maxWidth: '380px', padding: '1.5rem' }}>
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 800 }}>Settings</h3>
+              <button onClick={() => setSettingsOpen(false)} className="header-menu-item" style={{ width: 'auto', padding: '6px' }}>
+                <X size={18} />
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px' }}>
+                <div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 700 }}>Display Name</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Shown across the app</div>
+                </div>
+                <input
+                  type="text"
+                  value={userName}
+                  onChange={handleNameChange}
+                  style={{
+                    width: '130px',
+                    padding: '6px 10px',
+                    borderRadius: '8px',
+                    border: '1px solid var(--border-color)',
+                    background: 'var(--bg-input)',
+                    color: 'var(--text-primary)',
+                    fontSize: '0.8rem'
+                  }}
+                />
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
