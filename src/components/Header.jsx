@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Zap, Sun, Moon, Calendar, Layers, User, Settings, HelpCircle, LogOut, ChevronDown, X } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
@@ -224,7 +225,7 @@ export default function Header({ theme, toggleTheme }) {
         </div>
       </div>
 
-      {settingsOpen && (
+      {settingsOpen && createPortal(
         <div
           onClick={() => setSettingsOpen(false)}
           style={{
@@ -316,7 +317,8 @@ export default function Header({ theme, toggleTheme }) {
 
             </div>
           </div>
-        </div>
+        </div>,
+      document.body
       )}
     </header>
   );
