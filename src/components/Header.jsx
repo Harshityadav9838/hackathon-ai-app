@@ -275,3 +275,49 @@ export default function Header({ theme, toggleTheme }) {
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 700 }}>Appearance</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Switch between dark and light</div>
+                </div>
+                <button onClick={toggleTheme} className="btn btn-secondary" style={{ padding: '6px 14px', borderRadius: '9999px', fontSize: '0.78rem' }}>
+                  {theme === 'dark' ? 'Dark' : 'Light'}
+                </button>
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 700 }}>Notifications</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>Deadline & streak reminders</div>
+                </div>
+                <button
+                  onClick={toggleNotifications}
+                  aria-label="Toggle notifications"
+                  style={{
+                    width: '42px',
+                    height: '24px',
+                    borderRadius: '9999px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    background: notifications ? 'var(--gradient-primary)' : 'rgba(148,163,184,0.3)',
+                    position: 'relative',
+                    transition: 'background 0.2s'
+                  }}>
+                  <span style={{
+                    position: 'absolute',
+                    top: '3px',
+                    left: notifications ? '21px' : '3px',
+                    width: '18px',
+                    height: '18px',
+                    borderRadius: '50%',
+                    background: '#fff',
+                    transition: 'left 0.2s'
+                  }} />
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+}
