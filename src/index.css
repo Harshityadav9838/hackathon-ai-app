@@ -408,3 +408,44 @@ body::before {
   color: var(--text-primary);
   border: 1px solid var(--border-color);
 }
+
+.circular-timer-ring {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.circular-timer-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 8px;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-cyan) 0deg,
+    var(--accent-purple) 260deg,
+    rgba(255, 255, 255, 0.12) 260deg 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.5)) drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+  animation: timerGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes timerGlowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.5)) drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.75)) drop-shadow(0 0 16px rgba(56, 189, 248, 0.6));
+  }
+}
