@@ -449,3 +449,22 @@ body::before {
     filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.75)) drop-shadow(0 0 16px rgba(56, 189, 248, 0.6));
   }
 }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #ffffff;
+}
+
+.badge-purple { background: var(--accent-purple); }
+.badge-cyan { background: var(--accent-cyan); }
+.badge-pink { background: var(--accent-pink); }
+.badge-amber { background: var(--accent-amber); color: #1a1206; }
+.badge-emerald { background: var(--accent-emerald); color: #052e1f; }
+.badge-red { background: #ef4444; }
