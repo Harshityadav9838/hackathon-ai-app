@@ -468,3 +468,25 @@ body::before {
 .badge-amber { background: var(--accent-amber); color: #1a1206; }
 .badge-emerald { background: var(--accent-emerald); color: #052e1f; }
 .badge-red { background: #ef4444; }
+
+.header-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.header-menu-item:hover {
+  background: rgba(168, 85, 247, 0.12);
+  color: var(--accent-purple);
+}
