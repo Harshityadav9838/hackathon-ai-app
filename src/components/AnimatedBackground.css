@@ -222,6 +222,33 @@
   animation: floatSoft 15s ease-in-out infinite;
 }
 
+/* medium diamond, left side, mid-height - more visible */
+.animated-bg.light .crystal-shape-9 {
+  position: absolute;
+  top: 32%;
+  left: 2%;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(196,181,253,0.45) 50%, rgba(165,243,252,0.35));
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  filter: blur(0.5px) drop-shadow(0 16px 28px rgba(124,58,237,0.18));
+  opacity: 0.85;
+  animation: floatSoft 14s ease-in-out infinite;
+}
+
+/* small hexagon, left side, lower - more visible */
+.animated-bg.light .crystal-shape-10 {
+  position: absolute;
+  top: 72%;
+  left: 12%;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(249,168,212,0.4) 50%, rgba(196,181,253,0.3));
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  filter: blur(0.5px) drop-shadow(0 12px 22px rgba(219,39,119,0.16));
+  opacity: 0.8;
+  animation: floatSoft 10s ease-in-out infinite reverse;
+}
 /* floating pastel cubes / rings (reuse existing SVGs or add new pastel assets) */
 .animated-bg.light .float-asset {
   position: absolute;
