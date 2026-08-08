@@ -317,14 +317,56 @@ export default function DashboardPage() {
         )}
 
         {edgeCase === 'missed_day' && (
-          <div className="glass-panel" style={{ padding: '1.25rem', border: '1px solid var(--accent-pink)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ fontSize: '1.8rem' }}>⚠️</div>
-                <div>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-pink)', lineHeight: 1 }}>
-                    MISSED DAY 11
-                  </div>)}
+  <div
+    className="glass-panel"
+    style={{
+      padding: '1.25rem',
+      border: '1px solid var(--accent-pink)',
+    }}
+  >
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+        }}
+      >
+        <div style={{ fontSize: '1.8rem' }}>⚠️</div>
+
+        <div>
+          <div
+            style={{
+              fontSize: '1.2rem',
+              fontWeight: 800,
+              color: 'var(--accent-pink)',
+              lineHeight: 1,
+            }}
+          >
+            MISSED DAY 11
+          </div>
+
+          <div
+            style={{
+              fontSize: '0.75rem',
+              color: 'var(--text-secondary)',
+            }}
+          >
+            Complete Day 12 to activate Streak Shield!
+          </div>
+        </div>
+      </div>
+
+      <span className="badge badge-purple">Grace Period</span>
+    </div>
+  </div>
+)}
       </div>
 
       {/* 📊 Momentum Status */}
