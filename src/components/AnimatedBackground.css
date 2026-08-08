@@ -29,8 +29,9 @@
 }
 
 .animated-bg.dark .bg-smoke.smoke-dark {
-  filter: blur(6px) saturate(140%) brightness(0.95);
-  opacity: 0.95;
+  filter: blur(4px) saturate(180%) brightness(1.1) contrast(1.05);
+  opacity: 1;
+  transform: translateY(-6%) scale(1.15);
 }
 
 .animated-bg.dark .ring-asset-1 {
