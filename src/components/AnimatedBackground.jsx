@@ -15,22 +15,38 @@ export default function AnimatedBackground() {
     return () => observer.disconnect();
   }, []);
 
-  if (theme !== 'dark') return null; // only show heavy neon background in dark theme
-
   return (
-    <div className="animated-bg" aria-hidden="true">
-      <img src="/smoke.svg" className="bg-smoke" alt="" />
+    <div className={`animated-bg ${theme === 'light' ? 'light' : 'dark'}`} aria-hidden="true">
+      {/* shared soft smoke/nebula overlay */}
+      <img src="/smoke.svg" className={`bg-smoke ${theme === 'light' ? 'smoke-light' : 'smoke-dark'}`} alt="" />
 
-      {/* floating svg assets */}
-      <img src="/ring1.svg" className="float-asset ring-asset ring-asset-1" alt="" />
-      <img src="/cube1.svg" className="float-asset cube-asset cube-asset-1" alt="" />
+      {theme === 'dark' ? (
+        <>
+          {/* floating svg assets (dark) */}
+          <img src="/ring1.svg" className="float-asset ring-asset ring-asset-1" alt="" />
+          <img src="/cube1.svg" className="float-asset cube-asset cube-asset-1" alt="" />
 
-      {/* subtle rings for additional depth */}
-      <div className="ring r1" />
-      <div className="ring r2" />
-      <div className="ring r3" />
-      <div className="ring r4" />
-      <div className="ring r5" />
+          {/* subtle rings for additional depth (dark) */}
+          <div className="ring r1" />
+          <div className="ring r2" />
+          <div className="ring r3" />
+          <div className="ring r4" />
+          <div className="ring r5" />
+        </>
+      ) : (
+        <>
+          {/* Light-theme beams, pastel cubes, and soft highlights */}
+          <div className="light-beam beam-1" />
+          <div className="light-beam beam-2" />
+          <div className="light-beam beam-3" />
+
+          <img src="/cube1.svg" className="float-asset cube-asset cube-asset-light-1" alt="" />
+          <img src="/ring1.svg" className="float-asset ring-asset ring-asset-light-1" alt="" />
+
+          <div className="sparkle s1" />
+          <div className="sparkle s2" />
+        </>
+      )}
     </div>
   );
 }
