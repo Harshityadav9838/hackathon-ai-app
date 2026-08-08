@@ -623,32 +623,129 @@ export default function DashboardPage() {
           </p>
         </div>
 
-        {/* Your Team: NeoVision */}
-        <div className="glass-panel" style={{ padding: '1.25rem' }}>
-          <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.8rem' }}>Your Team: NeoVision</h3>
-          
-          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '6px' }}>
-            <span>Members</span>
-            <span>Progress</span>
-          </div>
+       {/* Your Team: NeoVision */}
+<div className="glass-panel" style={{ padding: '1.25rem' }}>
+  <h3
+    style={{
+      fontSize: '1rem',
+      fontWeight: 700,
+      marginBottom: '0.8rem',
+    }}
+  >
+    Your Team: NeoVision
+  </h3>
 
-          <div style={{ display: 'flex', alignItems: 'center', justify: 'space-between', marginBottom: '1rem' }}>
-            <div style={{ display: 'flex', marginLeft: '6px' }}>
-              <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: '#6366f1', color: '#fff', fontSize: '0.75rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--bg-card)' }}>SC</div>
-              <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: '#a855f7', color: '#fff', fontSize: '0.75rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--bg-card)', marginLeft: '-6px' }}>HY</div>
-              <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: '#06b6d4', color: '#fff', fontSize: '0.75rem', fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--bg-card)', marginLeft: '-6px' }}>AK</div>
-            </div>
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      fontSize: '0.78rem',
+      color: 'var(--text-muted)',
+      marginBottom: '6px',
+    }}
+  >
+    <span>Members</span>
+    <span>Progress</span>
+  </div>
 
-            <div style={{ width: '100px', height: '6px', background: 'rgba(0,0,0,0.06)', borderRadius: '9999px', overflow: 'hidden' }}>
-              <div style={{ height: '100%', width: '85%', background: 'var(--gradient-neon)' }} />
-            </div>
-          </div>
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: '1rem',
+    }}
+  >
+    <div style={{ display: 'flex', marginLeft: '6px' }}>
+      <div
+        style={{
+          width: '26px',
+          height: '26px',
+          borderRadius: '50%',
+          background: '#6366f1',
+          color: '#fff',
+          fontSize: '0.75rem',
+          fontWeight: 700,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          border: '2px solid var(--bg-card)',
+        }}
+      >
+        SC
+      </div>
 
-          <Link to="/day/12" className="btn btn-secondary" style={{ width: '100%', fontSize: '0.82rem', textDecoration: 'none' }}>
-            <span>Submit Day 12</span>
-            <ArrowRight size={14} />
-          </Link>
-        </div>
+      <div
+        style={{
+          width: '26px',
+          height: '26px',
+          borderRadius: '50%',
+          background: '#a855f7',
+          color: '#fff',
+          fontSize: '0.75rem',
+          fontWeight: 700,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          border: '2px solid var(--bg-card)',
+          marginLeft: '-6px',
+        }}
+      >
+        HY
+      </div>
+
+      <div
+        style={{
+          width: '26px',
+          height: '26px',
+          borderRadius: '50%',
+          background: '#06b6d4',
+          color: '#fff',
+          fontSize: '0.75rem',
+          fontWeight: 700,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          border: '2px solid var(--bg-card)',
+          marginLeft: '-6px',
+        }}
+      >
+        AK
+      </div>
+    </div>
+
+    <div
+      style={{
+        width: '100px',
+        height: '6px',
+        background: 'rgba(0,0,0,0.06)',
+        borderRadius: '9999px',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          height: '100%',
+          width: '85%',
+          background: 'var(--gradient-neon)',
+        }}
+      />
+    </div>
+  </div>
+
+  <Link
+    to="/day/12"
+    className="btn btn-secondary"
+    style={{
+      width: '100%',
+      fontSize: '0.82rem',
+      textDecoration: 'none',
+    }}
+  >
+    <span>Submit Day 12</span>
+    <ArrowRight size={14} />
+  </Link>
+</div>
 
         {/* Upcoming Events */}
         <div className="glass-panel" style={{ padding: '1.25rem' }}>
