@@ -1,20 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { Zap, Sun, Moon, Calendar, Layers, UserCheck } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Zap, Sun, Moon, Calendar, Layers, User, Settings, HelpCircle, LogOut, ChevronDown } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 export default function Header({ theme, toggleTheme }) {
-  // Dynamic User Profile State (Persisted in localStorage)
   const [userName, setUserName] = useState(() => {
     return localStorage.getItem('abtalks_user_name') || 'Student Builder';
   });
 
   const [isEditing, setIsEditing] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const handleNameChange = (e) => {
     const val = e.target.value;
     setUserName(val);
     localStorage.setItem('abtalks_user_name', val);
   };
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <header style={{
@@ -33,8 +44,7 @@ export default function Header({ theme, toggleTheme }) {
         maxWidth: '1200px',
         margin: '0 auto'
       }}>
-        
-        {/* Brand Logo & Name */}
+
         <NavLink to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
             width: '38px',
@@ -58,7 +68,6 @@ export default function Header({ theme, toggleTheme }) {
           </div>
         </NavLink>
 
-        {/* Desktop Top Navigation */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }} className="desktop-nav">
           <NavLink to="/" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600 }}>
             Home
@@ -75,11 +84,9 @@ export default function Header({ theme, toggleTheme }) {
           </NavLink>
         </div>
 
-        {/* Right Actions: Theme Toggle + Dynamic Logged-in User Profile */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          
-          {/* Dual Theme Switcher */}
-          <button 
+
+          <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
             className="btn btn-secondary"
@@ -97,62 +104,108 @@ export default function Header({ theme, toggleTheme }) {
             </span>
           </button>
 
-          {/* Dynamic Logged-In User Profile Component */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '4px 10px 4px 4px',
-            borderRadius: '9999px',
-            background: 'var(--bg-card)',
-            border: '1px solid var(--border-color)'
-          }}>
-            <div style={{
-              width: '28px',
-              height: '28px',
-              borderRadius: '50%',
-              background: 'var(--gradient-neon)',
-              color: '#fff',
-              fontWeight: 800,
-              fontSize: '0.85rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              textTransform: 'uppercase'
-            }}>
-              {userName ? userName.charAt(0) : 'U'}
-            </div>
-            
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              {isEditing ? (
-                <input 
-                  type="text" 
-                  value={userName} 
-                  onChange={handleNameChange}
-                  onBlur={() => setIsEditing(false)}
-                  autoFocus
-                  style={{
-                    fontSize: '0.78rem',
-                    fontWeight: 700,
-                    background: 'transparent',
-                    border: 'none',
-                    color: 'var(--text-primary)',
-                    outline: 'none',
-                    width: '90px'
-                  }}
-                />
-              ) : (
-                <span 
-                  onClick={() => setIsEditing(true)}
-                  title="Click to edit logged in user name"
-                  style={{ fontSize: '0.78rem', fontWeight: 700, lineHeight: 1, cursor: 'pointer' }}>
-                  {userName}
+          <div ref={menuRef} style={{ position: 'relative' }}>
+            <div
+              onClick={() => setMenuOpen((prev) => !prev)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '4px 10px 4px 4px',
+                borderRadius: '9999px',
+                background: 'var(--bg-card)',
+                border: '1px solid var(--border-color)',
+                cursor: 'pointer'
+              }}>
+              <div style={{
+                width: '28px',
+                height: '28px',
+                borderRadius: '50%',
+                background: 'var(--gradient-neon)',
+                color: '#fff',
+                fontWeight: 800,
+                fontSize: '0.85rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textTransform: 'uppercase'
+              }}>
+                {userName ? userName.charAt(0) : 'U'}
+              </div>
+
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={userName}
+                    onChange={handleNameChange}
+                    onClick={(e) => e.stopPropagation()}
+                    onBlur={() => setIsEditing(false)}
+                    autoFocus
+                    style={{
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'var(--text-primary)',
+                      outline: 'none',
+                      width: '90px'
+                    }}
+                  />
+                ) : (
+                  <span
+                    onClick={(e) => { e.stopPropagation(); setIsEditing(true); }}
+                    title="Click to edit logged in user name"
+                    style={{ fontSize: '0.78rem', fontWeight: 700, lineHeight: 1, cursor: 'pointer' }}>
+                    {userName}
+                  </span>
+                )}
+                <span style={{ fontSize: '0.62rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>
+                  ● Logged In
                 </span>
-              )}
-              <span style={{ fontSize: '0.62rem', color: 'var(--accent-emerald)', fontWeight: 700 }}>
-                ● Logged In
-              </span>
+              </div>
+
+              <ChevronDown size={14} color="var(--text-muted)" style={{ transform: menuOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
             </div>
+
+            {menuOpen && (
+              <div className="glass-panel" style={{
+                position: 'absolute',
+                top: 'calc(100% + 8px)',
+                right: 0,
+                width: '200px',
+                padding: '8px',
+                zIndex: 200
+              }}>
+                <button onClick={() => { setMenuOpen(false); setIsEditing(true); }} className="header-menu-item">
+                  <User size={16} />
+                  <span>Account</span>
+                </button>
+
+                <button onClick={() => setMenuOpen(false)} className="header-menu-item">
+                  <Settings size={16} />
+                  <span>Settings</span>
+                </button>
+
+                <a href="mailto:support@abtalks.dev" onClick={() => setMenuOpen(false)} className="header-menu-item">
+                  <HelpCircle size={16} />
+                  <span>Help</span>
+                </a>
+
+                <div style={{ height: '1px', background: 'var(--border-color)', margin: '6px 0' }} />
+
+                <button
+                  onClick={() => {
+                    localStorage.removeItem('abtalks_user_name');
+                    setUserName('Student Builder');
+                    setMenuOpen(false);
+                  }}
+                  className="header-menu-item">
+                  <LogOut size={16} />
+                  <span>Log Out</span>
+                </button>
+              </div>
+            )}
           </div>
 
         </div>
