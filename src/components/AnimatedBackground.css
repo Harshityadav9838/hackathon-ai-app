@@ -100,6 +100,7 @@
 
 /* shared smoke - soften for light theme */
 .animated-bg.light .bg-smoke {
+  display: none;
   position: absolute;
   inset: 0;
   width: 120%;
