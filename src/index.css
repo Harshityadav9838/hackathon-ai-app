@@ -231,7 +231,7 @@ body::before {
 ========================================= */
 
 .glass-panel {
-  background: rgba(13, 17, 28, 0.52);
+  background: var(--bg-card);
 
   backdrop-filter: blur(24px) saturate(140%);
   -webkit-backdrop-filter: blur(24px) saturate(140%);
