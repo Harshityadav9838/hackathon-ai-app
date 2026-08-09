@@ -13,7 +13,8 @@ import {
   Shield,
   Zap,
   Award,
-  Lock
+  Lock,
+  AlertCircle
 } from 'lucide-react';
 import EdgeCaseSwitcher from '../components/EdgeCaseSwitcher';
 
@@ -40,17 +41,33 @@ export default function DashboardPage() {
     return () => observer.disconnect();
   }, []);
 
-  const [timerSeconds, setTimerSeconds] = useState(
-    45 * 3600 + 12 * 60 + 30
+ const DEADLINE_KEY = 'abtalks_challenge_deadline';
+
+  const [deadline] = useState(() => {
+    const stored = localStorage.getItem(DEADLINE_KEY);
+    if (stored) return new Date(stored);
+    const initial = new Date(Date.now() + (45 * 3600 + 12 * 60 + 30) * 1000);
+    localStorage.setItem(DEADLINE_KEY, initial.toISOString());
+    return initial;
+  });
+
+  const [timerSeconds, setTimerSeconds] = useState(() =>
+    Math.max(0, Math.floor((deadline.getTime() - Date.now()) / 1000))
   );
+  const [deadlinePassed, setDeadlinePassed] = useState(() => timerSeconds <= 0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimerSeconds((prev) => (prev > 0 ? prev - 1 : 0));
+      const remaining = Math.max(0, Math.floor((deadline.getTime() - Date.now()) / 1000));
+      setTimerSeconds(remaining);
+      if (remaining <= 0) {
+        setDeadlinePassed(true);
+        clearInterval(interval);
+      }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [deadline]);
 
   const formatTimer = (totalSec) => {
     const h = Math.floor(totalSec / 3600);
@@ -269,9 +286,13 @@ export default function DashboardPage() {
                 COUNTDOWN TIMER
               </div>
 
-              <div
+        <div
                 className="circular-timer-ring"
-                style={{ marginBottom: '0.8rem' }}
+                style={{
+                  marginBottom: '0.8rem',
+                  opacity: deadlinePassed ? 0.55 : 1,
+                  filter: deadlinePassed ? 'grayscale(1)' : 'none'
+                }}
               >
                 <div
                   style={{
@@ -281,35 +302,51 @@ export default function DashboardPage() {
                     textTransform: 'uppercase'
                   }}
                 >
-                  Time Left
+                  {deadlinePassed ? 'Status' : 'Time Left'}
                 </div>
 
                 <div
                   style={{
-                    fontSize: '1.25rem',
+                    fontSize: deadlinePassed ? '1rem' : '1.25rem',
                     fontWeight: 800,
                     fontFamily: 'var(--font-mono)',
-                    color: 'var(--text-primary)',
+                    color: deadlinePassed ? '#ef4444' : 'var(--text-primary)',
                     marginTop: '2px'
                   }}
                 >
-                  {formatTimer(timerSeconds)}
+                  {deadlinePassed ? 'ENDED' : formatTimer(timerSeconds)}
                 </div>
               </div>
 
-              <div
-                style={{
-                  fontSize: '0.78rem',
-                  color: 'var(--accent-emerald)',
-                  fontWeight: 600,
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px'
-                }}
-              >
-                <Clock size={12} />
-                Deadline: Sunday 8:00 PM IST
-              </div>
+              {deadlinePassed ? (
+                <div
+                  style={{
+                    fontSize: '0.78rem',
+                    color: '#ef4444',
+                    fontWeight: 700,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}
+                >
+                  <AlertCircle size={12} />
+                  Deadline Finished
+                </div>
+              ) : (
+                <div
+                  style={{
+                    fontSize: '0.78rem',
+                    color: 'var(--accent-emerald)',
+                    fontWeight: 600,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}
+                >
+                  <Clock size={12} />
+                  Deadline: Sunday 8:00 PM IST
+                </div>
+              )}
             </div>
           </div>
 
