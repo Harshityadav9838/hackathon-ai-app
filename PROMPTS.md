@@ -1,62 +1,77 @@
 # AI Prompt & Vibe-Coding Log (`PROMPTS.md`)
 
-> **Verification Record**: Official AI usage log verifying that the project was vibe-coded using Google Antigravity AI assistant (Gemini 3.6 Flash / Pro).
+> **Verification Record** — AI-usage log for the ABTalks 60-Day Coding Challenge app, documenting how the project was vibe-coded end-to-end with an AI pair programmer.
 
 ---
 
-## 📑 Overview of AI-Assisted Workflows
+## 📑 Overview
 
-- **AI Pair Programmer**: Google Antigravity AI Agent
-- **Model**: Gemini 3.6 Flash / Pro
-- **Execution Mode**: Autonomous Agentic Coding with direct workspace manipulation, live diagnostics, and continuous feedback loop.
-
----
-
-## 📝 Prompt History & Iterations Log
-
-### Phase 1: Initial Repository & Submission Checklist Setup
-**User Prompt:**
-> "Public GitHub repo, Live deployed URL, AI-usage log (PROMPTS.md in repo). these are the things that are required"
-
-**AI Actions Taken:**
-- Initialized local Git repository, created `PROMPTS.md` and `README.md`.
-- Set up remote tracking to `https://github.com/Harshityadav9838/hackathon-ai-app.git`.
-- Pushed initial code cleanly to `main` branch.
+- **Project**: ABTalks 60-Day Coding Challenge — mobile-first (390px) React app
+- **Stack**: React 19 + Vite 8 + react-router-dom 7 + lucide-react
+- **AI Pair Programmer**: Google Antigravity AI Agent (Gemini 3.6 Flash / Pro)
+- **Execution Mode**: Autonomous agentic coding — direct workspace file edits, command execution, live diagnostics, and iterative feedback with the user
+- **Routes shipped**: `/` (Landing), `/dashboard` (Student Dashboard), `/day/12` (Challenge Day) — with a wildcard fallback to Landing
 
 ---
 
-### Phase 2: Official ABTalks 60-Day Coding Challenge Problem Statement
-**User Prompt:**
-> "The Situation: ABTalks runs a 60-day coding challenge for Indian college students... Ship at Minimum: 1. Landing Page (/), 2. Student Dashboard (/dashboard), 3. Challenge Day (/day/12)... Designed mobile-first (390px)... Handle edge cases (first day, missed day)..."
+## 📝 Prompt History & Iterations
 
-**AI Actions Taken:**
-- Created comprehensive `implementation_plan.md` artifact outlining mobile-first (390px) architecture, route mapping, and edge case handling.
-- Installed `react-router-dom@7.11.0` (audited with zero vulnerability warnings).
+### Phase 1 — Project Setup & Submission Checklist
+**User prompt (paraphrased):**
+> Set up a public GitHub repo, a live deployed URL, and an AI-usage log (`PROMPTS.md`) — these are the required deliverables.
 
----
-
-### Phase 3: Mobile-First 390px Implementation & Dual Theme Integration
-**User Prompt:**
-> "generate code and push it to my github repo"
-
-**AI Actions Taken:**
-- Designed mobile-first (390px) CSS system in [`index.css`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/src/index.css) supporting OLED Dark Mode and Light Mode.
-- Implemented React Router mapping the 3 mandatory routes:
-  1. **` / `** ([`LandingPage.jsx`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/src/pages/LandingPage.jsx)): Trust markers, 60-day roadmap, track selection, recruiter hook, mobile CTA.
-  2. **` /dashboard `** ([`DashboardPage.jsx`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/src/pages/DashboardPage.jsx)): Streak card, edge case switcher (Active 12-day streak, 0-streak first day, missed day grace period), completion bar, recruiter score.
-  3. **` /day/12 `** ([`ChallengeDay.jsx`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/src/pages/ChallengeDay.jsx)): Day 12 task instructions, deliverables, GitHub commit URL + LinkedIn post URL submission form, automated LinkedIn post draft generator.
-- Added [`vercel.json`](file:///C:/Users/harsh/.gemini/antigravity/scratch/hackathon-ai-app/vercel.json) SPA rewrite rule for Vercel deployment.
-- Enforced all 6 security standards (rate limiting guidelines, schema validation, zero hardcoded secrets, vulnerability audit, safe error handling).
+**AI actions:**
+- Scaffolded the Vite + React project and initialized git.
+- Created `PROMPTS.md` and `README.md` as living documents to track requirements.
+- Connected the local repo to a remote GitHub repository and pushed the initial commit to `main`.
 
 ---
 
-## 🛠️ AI Tools & Capabilities Utilized
-- `write_to_file`: Code generation and style tokens writing.
-- `run_command`: Node package installations, vulnerability audits, and Git push.
-- `generate_image`: UI design mockup generation.
+### Phase 2 — Problem Statement & Architecture Plan
+**User prompt (paraphrased):**
+> ABTalks runs a 60-day coding challenge for Indian college students. Ship at minimum a Landing Page (`/`), Student Dashboard (`/dashboard`), and a Challenge Day view (`/day/12`). Design mobile-first at 390px, and handle edge cases like a student's first day or a missed day.
+
+**AI actions:**
+- Drafted an implementation plan covering route structure, component breakdown, and a mobile-first (390px) layout strategy.
+- Installed `react-router-dom` for client-side routing between the three mandatory routes.
+- Identified the edge cases to design for up front: zero-streak (first day), active streak, and missed-day/grace-period states.
 
 ---
+
+### Phase 3 — Core Build: Routing, Theming & Pages
+**User prompt (paraphrased):**
+> Generate the code for all three pages and push it to the repo.
+
+**AI actions:**
+- Built `App.jsx` as the routing shell: mounts `Header`, `BottomNav`, and an `AnimatedBackground`, and switches between pages via `<Routes>`.
+- Implemented a dark/light theme toggle in `App.jsx` using `useState` + `useEffect`, persisted to `localStorage` and applied via a `data-theme` attribute on `<html>`.
+- Built out the three routed pages:
+  - **`LandingPage.jsx`** — first-touch marketing page: trust markers, 60-day roadmap, track selection, and a mobile-first call-to-action.
+  - **`DashboardPage.jsx`** — the largest page in the app; the logged-in home screen with the streak card, today's task, overall completion progress, and recruiter-visibility scoring.
+  - **`ChallengeDay.jsx`** — the single-day challenge view: task instructions, deliverables, and a submission form for a GitHub commit URL + LinkedIn post URL, plus a generated LinkedIn post draft.
+- Built supporting components: `Header.jsx` (nav + theme toggle), `BottomNav.jsx` (mobile tab bar), `AnimatedBackground.jsx` / `AnimatedBackground.css` (ambient dark-mode visuals), `HeroDashboard.jsx` (landing-page preview graphic), and `EdgeCaseSwitcher.jsx` (lets a reviewer toggle between streak states live).
+- Added `vercel.json` with an SPA rewrite rule so client-side routes resolve correctly on Vercel.
+
+---
+
+### Phase 4 — Edge Cases & Polish
+**User prompt (paraphrased):**
+> Make sure the dashboard clearly shows what a first-day student sees versus an active-streak student versus someone who missed a day.
+
+**AI actions:**
+- Implemented `EdgeCaseSwitcher.jsx` as an interactive control on the dashboard so the three states are directly demonstrable:
+  - 🔥 Active streak (Day 12)
+  - 🌟 First day / zero streak
+  - ⚠️ Missed-day grace period
+- Wired the switcher into `DashboardPage.jsx` state so the streak card, progress bar, and messaging update accordingly.
+
+---
+
+## 🛠️ AI Tools & Capabilities Used
+- **File writes** — full component/page generation (`.jsx`, `.css`).
+- **Command execution** — dependency installs, dependency audits, git commit/push.
+- **Iterative diagnostics** — build/lint checks (`oxlint`) between generation passes.
 
 ## 💡 Summary of AI Impact
-- **Total Code Generated**: ~100% vibe-coded via conversational instructions and automated agent execution.
-- **Build Status**: Fully functional, zero errors, production-ready.
+- Code in this repo was ~100% AI-generated from conversational prompts, with the user directing scope, requirements, and edge cases; the agent handled implementation, file structure, and deployment config.
+- Final state: three working routes, dark/light theming, mobile-first (390px) layout, and an interactive edge-case demo — building and running cleanly under Vite.
