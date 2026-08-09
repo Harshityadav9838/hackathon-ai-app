@@ -36,10 +36,12 @@ export default function BottomNav() {
             color: isActive ? 'var(--accent-purple)' : 'var(--text-muted)',
             fontSize: '0.72rem',
             fontWeight: isActive ? 700 : 500,
-            transition: 'color 0.2s ease'
+            transition: 'color 0.2s ease',
+            flex: 1,
+            minWidth: 0
           })}>
           <Home size={20} />
-          <span>Home ( / )</span>
+          <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>Home ( / )</span>
         </NavLink>
 
         {/* Route /dashboard : Student Dashboard */}
@@ -54,7 +56,9 @@ export default function BottomNav() {
             color: isActive ? 'var(--accent-purple)' : 'var(--text-muted)',
             fontSize: '0.72rem',
             fontWeight: isActive ? 700 : 500,
-            transition: 'color 0.2s ease'
+            transition: 'color 0.2s ease',
+            flex: 1, 
+            minWidth: 0
           })}>
           <LayoutDashboard size={20} />
           <span>Dashboard</span>
@@ -72,7 +76,9 @@ export default function BottomNav() {
             color: isActive ? 'var(--accent-purple)' : 'var(--text-muted)',
             fontSize: '0.72rem',
             fontWeight: isActive ? 700 : 500,
-            transition: 'color 0.2s ease'
+            transition: 'color 0.2s ease',
+            flex: 1, 
+            minWidth: 0
           })}>
           <Calendar size={20} />
           <span>Day 12</span>
