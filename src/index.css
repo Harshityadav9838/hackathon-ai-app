@@ -129,7 +129,7 @@ body::before {
 }
 
 [data-theme="light"] body {
-  background: linear-gradient(135deg, #fdf2f8 0%, #f5f3ff 30%, #eef2ff 55%, #ecfeff 80%, #f0fdfa 100%) !important;
+  background: linear-gradient(135deg, #f3e8f0 0%, #e9e5f7 30%, #dfe4f5 55%, #dcf0f2 80%, #dff5ee 100%) !important;
   background-attachment: fixed;
 }
 
