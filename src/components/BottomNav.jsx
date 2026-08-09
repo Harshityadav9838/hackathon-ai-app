@@ -61,7 +61,7 @@ export default function BottomNav() {
             minWidth: 0
           })}>
           <LayoutDashboard size={20} />
-          <span>Dashboard</span>
+          <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>Dashboard</span>
         </NavLink>
 
         {/* Route /day/12 : Challenge Day 12 */}
@@ -81,7 +81,7 @@ export default function BottomNav() {
             minWidth: 0
           })}>
           <Calendar size={20} />
-          <span>Day 12</span>
+          <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '100%' }}>Day 12</span>
         </NavLink>
 
       </div>
