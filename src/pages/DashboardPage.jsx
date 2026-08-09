@@ -57,14 +57,6 @@ const DEADLINE_KEY = 'abtalks_challenge_deadline';
     return today8pm;
   });
 
-  const totalSeconds = Number(localStorage.getItem(TOTAL_KEY)) || (45 * 3600 + 12 * 60 + 30);
-  const hoursLeftLabel = deadlinePassed
-    ? 'Deadline Finished'
-    : `${Math.max(0, Math.ceil(timerSeconds / 3600))} Hours Left`;
-  const progressPercent = Math.min(
-    100,
-    Math.max(0, Math.round(((totalSeconds - timerSeconds) / totalSeconds) * 100))
-  );
   const [timerSeconds, setTimerSeconds] = useState(() =>
     Math.max(0, Math.floor((deadline.getTime() - Date.now()) / 1000))
   );
@@ -82,6 +74,15 @@ const DEADLINE_KEY = 'abtalks_challenge_deadline';
 
     return () => clearInterval(interval);
   }, [deadline]);
+
+  const totalSeconds = Number(localStorage.getItem(TOTAL_KEY)) || (45 * 3600 + 12 * 60 + 30);
+  const hoursLeftLabel = deadlinePassed
+    ? 'Deadline Finished'
+    : `${Math.max(0, Math.ceil(timerSeconds / 3600))} Hours Left`;
+  const progressPercent = Math.min(
+    100,
+    Math.max(0, Math.round(((totalSeconds - timerSeconds) / totalSeconds) * 100))
+  );
 
   const formatTimer = (totalSec) => {
     const h = Math.floor(totalSec / 3600);
