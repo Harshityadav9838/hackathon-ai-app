@@ -82,21 +82,7 @@ export default function Header({ theme, toggleTheme }) {
           </div>
         </NavLink>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }} className="desktop-nav">
-          <NavLink to="/" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600 }}>
-            Home
-          </NavLink>
-
-          <NavLink to="/dashboard" style={{ textDecoration: 'none', color: 'var(--text-primary)', fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <Layers size={15} color="var(--accent-purple)" />
-            <span>Dashboard</span>
-          </NavLink>
-
-          <NavLink to="/day/12" style={{ textDecoration: 'none', color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <Calendar size={15} />
-            <span>Day 12</span>
-          </NavLink>
-        </div>
+       
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
 
