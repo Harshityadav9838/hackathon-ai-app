@@ -522,3 +522,18 @@ body::before {
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
 }
+@media (max-width: 680px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-theme-btn span {
+    display: none;
+  }
+
+  .header-profile-info {
+    display: none !important;
+  }
+}
