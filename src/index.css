@@ -96,6 +96,9 @@
               color var(--transition-speed) var(--transition-cubic),
               box-shadow var(--transition-speed) var(--transition-cubic);
 }
+html {
+  overflow-x: hidden;
+}
 
 body {
   font-family: var(--font-sans);
