@@ -42,6 +42,7 @@ export default function DashboardPage() {
   }, []);
 
 const DEADLINE_KEY = 'abtalks_challenge_deadline';
+  const TOTAL_KEY = 'abtalks_challenge_total_seconds';
 
   const [deadline] = useState(() => {
     const stored = localStorage.getItem(DEADLINE_KEY);
@@ -49,8 +50,21 @@ const DEADLINE_KEY = 'abtalks_challenge_deadline';
     const today8pm = new Date();
     today8pm.setHours(20, 0, 0, 0);
     localStorage.setItem(DEADLINE_KEY, today8pm.toISOString());
+    localStorage.setItem(
+      TOTAL_KEY,
+      String(Math.max(1, Math.floor((today8pm.getTime() - Date.now()) / 1000)))
+    );
     return today8pm;
   });
+
+  const totalSeconds = Number(localStorage.getItem(TOTAL_KEY)) || (45 * 3600 + 12 * 60 + 30);
+  const hoursLeftLabel = deadlinePassed
+    ? 'Deadline Finished'
+    : `${Math.max(0, Math.ceil(timerSeconds / 3600))} Hours Left`;
+  const progressPercent = Math.min(
+    100,
+    Math.max(0, Math.round(((totalSeconds - timerSeconds) / totalSeconds) * 100))
+  );
   const [timerSeconds, setTimerSeconds] = useState(() =>
     Math.max(0, Math.floor((deadline.getTime() - Date.now()) / 1000))
   );
@@ -634,7 +648,7 @@ const DEADLINE_KEY = 'abtalks_challenge_deadline';
                       fontWeight: 800
                     }}
                   >
-                    48 Hours Left
+                    {hoursLeftLabel}
                   </h3>
 
                   <span
@@ -659,10 +673,10 @@ const DEADLINE_KEY = 'abtalks_challenge_deadline';
                     overflow: 'hidden'
                   }}
                 >
-                  <div
+                 <div
                     style={{
                       height: '100%',
-                      width: '75%',
+                      width: `${progressPercent}%`,
                       background: 'var(--gradient-neon)',
                       borderRadius: '9999px'
                     }}
