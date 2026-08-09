@@ -41,16 +41,16 @@ export default function DashboardPage() {
     return () => observer.disconnect();
   }, []);
 
- const DEADLINE_KEY = 'abtalks_challenge_deadline';
+const DEADLINE_KEY = 'abtalks_challenge_deadline';
 
   const [deadline] = useState(() => {
     const stored = localStorage.getItem(DEADLINE_KEY);
     if (stored) return new Date(stored);
-    const initial = new Date(Date.now() + (45 * 3600 + 12 * 60 + 30) * 1000);
-    localStorage.setItem(DEADLINE_KEY, initial.toISOString());
-    return initial;
+    const today8pm = new Date();
+    today8pm.setHours(20, 0, 0, 0);
+    localStorage.setItem(DEADLINE_KEY, today8pm.toISOString());
+    return today8pm;
   });
-
   const [timerSeconds, setTimerSeconds] = useState(() =>
     Math.max(0, Math.floor((deadline.getTime() - Date.now()) / 1000))
   );
