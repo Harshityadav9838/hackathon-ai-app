@@ -96,7 +96,7 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* shared smoke - soften for light theme */
