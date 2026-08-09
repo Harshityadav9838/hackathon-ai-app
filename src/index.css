@@ -132,7 +132,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(20, 15, 30, 0.08);
+  background: rgba(20, 15, 30, 0.04);
   pointer-events: none;
   z-index: 0;
 }
