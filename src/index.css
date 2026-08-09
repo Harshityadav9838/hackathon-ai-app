@@ -128,9 +128,13 @@ body::before {
   z-index: 0;
 }
 
-[data-theme="light"] body {
-  background: linear-gradient(135deg, #f3e8f0 0%, #e9e5f7 30%, #dfe4f5 55%, #dcf0f2 80%, #dff5ee 100%) !important;
-  background-attachment: fixed;
+[data-theme="light"] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 15, 30, 0.12);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* 🎥 Keyframe Animations */
