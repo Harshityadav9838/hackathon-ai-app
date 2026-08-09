@@ -21,7 +21,7 @@ The application provides the three exact routes required for automated screensho
 | Requirement | Status | Official Submission Link |
 | :--- | :---: | :--- |
 | **1. Public GitHub Repo** | ✅ **Live** | [https://github.com/Harshityadav9838/hackathon-ai-app](https://github.com/Harshityadav9838/hackathon-ai-app) |
-| **2. Live Deployed URL** | 🌐 **Live** | [https://hackathon-ai-app-kappa.vercel.app](https://chimerical-caramel-dae447.netlify.app/) |
+| **2. Live Deployed URL** | 🌐 **Live** | [https://hackathon-ai-app-kappa.vercel.app](https://rococo-kulfi-51fd18.netlify.app) |
 | **3. AI-Usage Log (`PROMPTS.md`)** | ✅ **Verified** | [`PROMPTS.md`](./PROMPTS.md) |
 
 ---
