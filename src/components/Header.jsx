@@ -103,7 +103,7 @@ export default function Header({ theme, toggleTheme }) {
           <button
             onClick={toggleTheme}
             aria-label="Toggle Theme"
-            className="btn btn-secondary"
+            className="btn btn-secondary header-theme-btn"
             style={{
               padding: '6px 14px',
               borderRadius: '9999px',
@@ -147,7 +147,7 @@ export default function Header({ theme, toggleTheme }) {
                 {userName ? userName.charAt(0) : 'U'}
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+             <div className="header-profile-info" style={{ display: 'flex', flexDirection: 'column' }}>
                 {isEditing ? (
                   <input
                     type="text"
